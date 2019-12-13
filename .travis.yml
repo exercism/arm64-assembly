@@ -1,5 +1,15 @@
-language: bash
+language: c
+
+arch:
+  - arm64
+
+os:
+  - linux
+
+compiler:
+  - gcc
 
 script:
   - bin/fetch-configlet
   - bin/configlet lint --track-id arm64-assembly .
+  - bin/verify-exercises

@@ -1,6 +1,7 @@
 {
   "track_id": "arm64-assembly",
   "language": "ARM64 Assembly",
+  "slug": "arm64-assembly",
   "active": false,
   "status": {
     "concept_exercises": false,

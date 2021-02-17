@@ -18,6 +18,20 @@
   "ignore_pattern": "[Ee]xample",
   "solution_pattern": "[Ee]xample",
   "test_pattern": "[Tt]est",
+  "files": {
+    "solution": [
+      "%{snake_slug}.s"
+    ],
+    "test": [
+      "%{snake_slug}_test.c"
+    ],
+    "example": [
+      "example.s"
+    ],
+    "exemplar": [
+      ".meta/exemplar.s"
+    ]
+  },
   "exercises": {
     "concept": [],
     "practice": [

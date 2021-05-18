@@ -13,7 +13,9 @@
   "version": 3,
   "online_editor": {
     "indent_style": "space",
-    "indent_size": 4
+    "indent_size": 4,
+    "ace_editor_language": "mips",
+    "highlightjs_language": "armasm"
   },
   "ignore_pattern": "[Ee]xample",
   "solution_pattern": "[Ee]xample",

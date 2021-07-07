@@ -1,5 +1,5 @@
 .section .rodata
-msg: .string ""
+msg: .string "Goodbye, Mars!"
 
 .text
 .global hello

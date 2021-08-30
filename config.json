@@ -24,7 +24,7 @@
       "%{snake_slug}_test.c"
     ],
     "example": [
-      "example.s"
+      ".meta/example.s"
     ],
     "exemplar": [
       ".meta/exemplar.s"

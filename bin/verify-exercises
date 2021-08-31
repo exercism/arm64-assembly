@@ -8,7 +8,7 @@ run_tests() {
     cd "$1"
 
     sed -i.bak 's#TEST_IGNORE();#// &#' "${file}"_test.c
-    mv example.s "${file}".s
+    mv .meta/example.s "${file}".s
 
     make clean
     make
@@ -20,7 +20,7 @@ main() {
     cd "$(dirname "$0")"/..
 
     rm -rf build
-    cp -r exercises build
+    cp -r exercises/practice build
 
     cd build
 

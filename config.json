@@ -9,7 +9,7 @@
     "representer": false,
     "analyzer": false
   },
-  "blurb": "",
+  "blurb": "ARM64/AArch64 assembly is a low-level programming language typically used in recent smartphone and tablet bootloaders, and operating system kernels.",
   "version": 3,
   "online_editor": {
     "indent_style": "space",

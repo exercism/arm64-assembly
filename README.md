@@ -10,11 +10,14 @@ GNU Assembler (gas) is used for this track.
 
 ## Testing
 
-Unity is a simple unit testing framework for C used by this track. Using a framework written in C instead of assembly language is easier to understand. It also shows how parameters are passed when calling assembly routines from C.
+Unity is a simple unit testing framework for C used by this track.
+Using a framework written in C instead of assembly language is easier to understand.
+It also shows how parameters are passed when calling assembly routines from C.
 
 ## Variant and Calling Conventions
 
-This is probably going to use the ARMv8.0-A profile which is a good default. This track is also probably going to use the ARM default calling convention to spare mentors from trouble.
+This is probably going to use the ARMv8.0-A profile which is a good default.
+This track is also probably going to use the ARM default calling convention to spare mentors from trouble.
 
 ## Contributing Guide
 

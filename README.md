@@ -4,17 +4,17 @@
 
 Exercism exercises in ARM64 Assembly.
 
-## TODO
+## Assembler
 
-### The Profile (A, R, or M)
+GNU Assembler (gas) is used for this track.
 
-What ARM64/ARMv8/AArch64 profile are we using? Probably should be A-profile.
+## Testing
 
-### The Core
+Unity is a simple unit testing framework for C used by this track. Using a framework written in C instead of assembly language is easier to understand. It also shows how parameters are passed when calling assembly routines from C.
 
-What core will we run in the test runner?
+## Variant and Calling Conventions
 
-Many ARM64 cores are different, like the [Cortex-A53](https://www.arm.com/products/silicon-ip-cpu/cortex-a/cortex-a53) compared to other cores. Probably could use that one as a basis for the runner, or the [Cortex-A72](https://www.arm.com/products/silicon-ip-cpu/cortex-a/cortex-a72).
+This is probably going to use the ARMv8.0-A profile which is a good default. This track is also probably going to use the ARM default calling convention to spare mentors from trouble.
 
 ## Contributing Guide
 

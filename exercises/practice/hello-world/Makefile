@@ -1,4 +1,5 @@
-AS = as
+AS = aarch64-linux-gnu-as
+CC = aarch64-linux-gnu-gcc
 
 CFLAGS = -g -Wall -Wextra -pedantic -Werror
 LDFLAGS =
@@ -15,7 +16,7 @@ ALL_OBJS = $(filter-out example.o,$(C_OBJS) $(AS_OBJS) vendor/unity.o)
 CC_CMD = $(CC) $(ALL_CFLAGS) -c -o $@ $<
 
 all: tests
-	@./$<
+	qemu-aarch64 -L /usr/aarch64-linux-gnu ./$<
 
 tests: $(ALL_OBJS)
 	@$(CC) $(ALL_CFLAGS) $(ALL_LDFLAGS) -o $@ $(ALL_OBJS)

@@ -1,3 +1,33 @@
+
 {
-  "docs": []
+  "docs": [
+    {
+      "uuid": "3625b605-b556-4bcf-87da-77f06e493deb",
+      "slug": "installation",
+      "path": "docs/INSTALLATION.md",
+      "title": "Installing ARM64 Assembly locally",
+      "blurb": "Learn how to install ARM64 Assembly locally to solve Exercism's exercises on your own machine"
+    },
+    {
+      "uuid": "3a09769c-f5ad-4e3a-912a-b06ba6cf604b",
+      "slug": "learning",
+      "path": "docs/LEARNING.md",
+      "title": "How to learn ARM64 Assembly",
+      "blurb": "An overview of how to get started from scratch with ARM64 Assembly"
+    },
+    {
+      "uuid": "292b3fa9-45dd-43ec-8528-d3bf442200a4",
+      "slug": "tests",
+      "path": "docs/TESTS.md",
+      "title": "Testing on the ARM64 Assembly track",
+      "blurb": "Learn how to test your ARM64 Assembly exercises on Exercism"
+    },
+    {
+      "uuid": "d4066012-de8c-4c28-89eb-f68dbd075444",
+      "slug": "resources",
+      "path": "docs/RESOURCES.md",
+      "title": "Useful ARM64 Assembly resources",
+      "blurb": "A collection of useful resources to help you master ARM64 Assembly"
+    }
+  ]
 }

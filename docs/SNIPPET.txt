@@ -1,0 +1,13 @@
+.section .rodata
+msg: .string "Assembly is awesome!\n"
+
+.text
+.global main
+main:
+    adrp x0, msg
+    add x0, x0, :lo12:msg
+    stp x29, x30, [sp]
+    bl printf
+    ldp x29, x30, [sp]
+    mov x0, #0
+    ret                     

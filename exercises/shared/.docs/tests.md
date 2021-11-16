@@ -1,14 +1,12 @@
 # Tests
 
-## Running Tests
-
 To run the tests, execute the following command:
 
 ```bash
 make
 ```
 
-## Solving the exercise
+## Skipped tests
 
 Solving an exercise means making all its tests pass.
 By default, only one test (the first one) is executed when you run the tests.

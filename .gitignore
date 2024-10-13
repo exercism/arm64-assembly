@@ -6,3 +6,4 @@ build/
 **/tests
 **/*.o
 *.pyc
+__pycache__/

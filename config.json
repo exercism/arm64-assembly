@@ -49,16 +49,16 @@
   "concepts": [],
   "key_features": [],
   "tags": [
+    "execution_mode/compiled",
     "paradigm/imperative",
     "paradigm/procedural",
-    "typing/static",
-    "typing/weak",
-    "execution_mode/compiled",
     "platform/android",
     "platform/ios",
-    "platform/mac",
     "platform/linux",
+    "platform/mac",
     "runtime/standalone_executable",
+    "typing/static",
+    "typing/weak",
     "used_for/embedded_systems",
     "used_for/mobile"
   ]

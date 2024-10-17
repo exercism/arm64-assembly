@@ -1,5 +1,4 @@
 {
-  "track_id": "arm64-assembly",
   "language": "ARM64 Assembly",
   "slug": "arm64-assembly",
   "active": false,
@@ -31,7 +30,6 @@
     ]
   },
   "exercises": {
-    "concept": [],
     "practice": [
       {
         "slug": "hello-world",
@@ -43,11 +41,17 @@
         "topics": [
           "strings"
         ]
+      },
+      {
+        "slug": "leap",
+        "name": "Leap",
+        "uuid": "64ff9257-ca9e-4c31-a8db-3736ff4e3284",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 2
       }
     ]
   },
-  "concepts": [],
-  "key_features": [],
   "tags": [
     "execution_mode/compiled",
     "paradigm/imperative",

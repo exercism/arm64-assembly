@@ -83,6 +83,14 @@
         "difficulty": 3
       },
       {
+        "slug": "isogram",
+        "name": "Isogram",
+        "uuid": "3dd7530f-fe11-4e3e-99df-47a893040cd8",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 3
+      },
+      {
         "slug": "pangram",
         "name": "Pangram",
         "uuid": "cc8d6b7d-9745-4cd1-a1d4-a6b184bdf00d",

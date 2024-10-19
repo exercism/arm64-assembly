@@ -43,6 +43,14 @@
         ]
       },
       {
+        "slug": "collatz-conjecture",
+        "name": "Collatz Conjecture",
+        "uuid": "926ee852-050e-4d4e-81c2-122a564dd664",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 2
+      },
+      {
         "slug": "leap",
         "name": "Leap",
         "uuid": "64ff9257-ca9e-4c31-a8db-3736ff4e3284",

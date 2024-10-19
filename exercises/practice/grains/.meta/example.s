@@ -6,9 +6,10 @@
 square:
         sub     x0, x0, #1
         cmp     x0, #64
-        bhs     .invalid
+        bhs     .invalid                /* unsigned >= */
+
         mov     x1, #1
-        lsl     x0, x1, x0
+        lsl     x0, x1, x0              /* 1 << (number - 1) */
         ret
 
 .invalid:

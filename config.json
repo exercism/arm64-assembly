@@ -59,6 +59,14 @@
         "difficulty": 2
       },
       {
+        "slug": "bob",
+        "name": "Bob",
+        "uuid": "af7ec84e-d49d-4389-9cb8-725739b40fa3",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 3
+      },
+      {
         "slug": "difference-of-squares",
         "name": "Difference of Squares",
         "uuid": "88ebf02b-e19b-4058-a48b-2e1560345dd0",

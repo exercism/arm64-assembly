@@ -3,7 +3,7 @@ FUNC_PROTO = """\
 
 #include <stdint.h>
 
-#define ERROR_VALUE -1
+#define INVALID_NUMBER -1
 
 extern int steps(int64_t number);
 """
@@ -33,5 +33,5 @@ def extra_cases():
 def gen_func_body(prop, inp, expected):
     number = inp["number"]
     if expected.__class__ == dict:
-        expected = -1
+        expected = 'INVALID_NUMBER'
     return f"TEST_ASSERT_EQUAL_INT({expected}, {prop}({number}));\n"

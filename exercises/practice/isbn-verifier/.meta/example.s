@@ -25,8 +25,7 @@ is_valid:
         b       .loop
 
 .non_digit:
-        tst     x1, x1
-        bne     .reject
+        cbnz    x1, .reject
 
         mov     x3, #10
         cmp     x2, #88                 /* 'X' */
@@ -37,8 +36,7 @@ is_valid:
         ret
 
 .end:
-        tst     x1, x1
-        bne     .reject
+        cbnz    x1, .reject
 
         mov     x1, #11
         udiv    x4, x5, x1              /* weighted sum / 11 */

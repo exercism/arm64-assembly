@@ -1,3 +1,5 @@
+.equ INVALID_NUMBER, -1
+
 .text
 .globl steps
 
@@ -26,7 +28,7 @@ steps:
         b       .loop
 
 .invalid:
-        mov     x0, #-1
+        mov     x0, INVALID_NUMBER
 
 .return:
         ret

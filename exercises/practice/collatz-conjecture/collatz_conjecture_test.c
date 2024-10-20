@@ -2,7 +2,7 @@
 
 #include <stdint.h>
 
-#define ERROR_VALUE -1
+#define INVALID_NUMBER -1
 
 extern int steps(int64_t number);
 
@@ -33,12 +33,12 @@ void test_large_number_of_even_and_odd_steps(void) {
 
 void test_zero_is_an_error(void) {
     TEST_IGNORE();
-    TEST_ASSERT_EQUAL_INT(-1, steps(0));
+    TEST_ASSERT_EQUAL_INT(INVALID_NUMBER, steps(0));
 }
 
 void test_negative_value_is_an_error(void) {
     TEST_IGNORE();
-    TEST_ASSERT_EQUAL_INT(-1, steps(-15));
+    TEST_ASSERT_EQUAL_INT(INVALID_NUMBER, steps(-15));
 }
 
 void test_large_positive(void) {
@@ -48,7 +48,7 @@ void test_large_positive(void) {
 
 void test_large_negative(void) {
     TEST_IGNORE();
-    TEST_ASSERT_EQUAL_INT(-1, steps(-7001002003));
+    TEST_ASSERT_EQUAL_INT(INVALID_NUMBER, steps(-7001002003));
 }
 
 int main(void) {

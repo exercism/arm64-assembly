@@ -1,0 +1,44 @@
+#include "vendor/unity.h"
+
+#include <stddef.h>
+
+#define BUFFER_SIZE 80
+
+extern void two_fer(char *buffer, const char *name);
+
+void setUp(void) {
+}
+
+void tearDown(void) {
+}
+
+void test_no_name_given(void) {
+    char buffer[BUFFER_SIZE];
+
+    two_fer(buffer, NULL);
+    TEST_ASSERT_EQUAL_STRING("One for you, one for me.", buffer);
+}
+
+void test_a_name_given(void) {
+    TEST_IGNORE();
+    char buffer[BUFFER_SIZE];
+
+    two_fer(buffer, "Alice");
+    TEST_ASSERT_EQUAL_STRING("One for Alice, one for me.", buffer);
+}
+
+void test_another_name_given(void) {
+    TEST_IGNORE();
+    char buffer[BUFFER_SIZE];
+
+    two_fer(buffer, "Bob");
+    TEST_ASSERT_EQUAL_STRING("One for Bob, one for me.", buffer);
+}
+
+int main(void) {
+    UNITY_BEGIN();
+    RUN_TEST(test_no_name_given);
+    RUN_TEST(test_a_name_given);
+    RUN_TEST(test_another_name_given);
+    return UNITY_END();
+}

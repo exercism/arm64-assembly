@@ -154,6 +154,10 @@
         "prerequisites": [],
         "difficulty": 5
       }
+    ],
+    "foregone": [
+      "bank-account",
+      "parallel-letter-frequency"
     ]
   },
   "tags": [

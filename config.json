@@ -131,6 +131,14 @@
         "difficulty": 4
       },
       {
+        "slug": "rotational-cipher",
+        "name": "Rotational Cipher",
+        "uuid": "efec64f7-3085-4afe-a8be-9e48e533550d",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 4
+      },
+      {
         "slug": "all-your-base",
         "name": "All Your Base",
         "uuid": "4e3f2d32-a052-45c2-ba97-2e2584d55650",

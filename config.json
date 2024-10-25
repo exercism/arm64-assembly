@@ -243,6 +243,14 @@
         "difficulty": 6
       },
       {
+        "slug": "pascals-triangle",
+        "name": "Pascal's Triangle",
+        "uuid": "46295ef5-0bcb-423f-8eaf-31e69ef51055",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 6
+      },
+      {
         "slug": "zebra-puzzle",
         "name": "Zebra Puzzle",
         "uuid": "dddd8d75-e7dd-43d8-b4f2-0af7f385f0b6",

@@ -171,6 +171,14 @@
         "difficulty": 4
       },
       {
+        "slug": "phone-number",
+        "name": "Phone Number",
+        "uuid": "5a7fefe0-1f8e-4d50-8e64-a96989d0e7c8",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 4
+      },
+      {
         "slug": "rotational-cipher",
         "name": "Rotational Cipher",
         "uuid": "efec64f7-3085-4afe-a8be-9e48e533550d",

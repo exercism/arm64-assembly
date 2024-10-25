@@ -219,6 +219,14 @@
         "difficulty": 3
       },
       {
+        "slug": "acronym",
+        "name": "Acronym",
+        "uuid": "3c556860-d30f-43f3-9304-1d69b4aa707f",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 4
+      },
+      {
         "slug": "atbash-cipher",
         "name": "Atbash Cipher",
         "uuid": "309d7449-4f2e-40cb-b38b-faedcf2b88bb",

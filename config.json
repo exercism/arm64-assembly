@@ -147,6 +147,14 @@
         "difficulty": 3
       },
       {
+        "slug": "raindrops",
+        "name": "Raindrops",
+        "uuid": "4f701cd9-698e-4528-b3f5-18b5459d880f",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 3
+      },
+      {
         "slug": "square-root",
         "name": "Square Root",
         "uuid": "fed39aff-8fc2-49a1-97fa-84fe1646fd60",

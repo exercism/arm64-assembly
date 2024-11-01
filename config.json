@@ -171,6 +171,14 @@
         "difficulty": 3
       },
       {
+        "slug": "triangle",
+        "name": "Triangle",
+        "uuid": "30e46a93-4c84-4b5f-8006-ddde0f155b09",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 3
+      },
+      {
         "slug": "atbash-cipher",
         "name": "Atbash Cipher",
         "uuid": "309d7449-4f2e-40cb-b38b-faedcf2b88bb",

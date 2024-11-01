@@ -243,6 +243,14 @@
         "difficulty": 5
       },
       {
+        "slug": "diamond",
+        "name": "Diamond",
+        "uuid": "a34c2fd9-268c-498f-be02-683e71b2e7e5",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 5
+      },
+      {
         "slug": "luhn",
         "name": "Luhn",
         "uuid": "74d44a25-bf7c-452a-9ba7-8b730a05684e",

@@ -3,7 +3,7 @@ FUNC_PROTO = """\
 
 #define BUFFER_SIZE 3200
 
-void rows(char *buffer, char letter);
+extern void rows(char *buffer, char letter);
 """
 
 def gen_func_body(prop, inp, expected):

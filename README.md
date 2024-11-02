@@ -1,8 +1,13 @@
 # Exercism ARM64 Assembly Track
 
-## Status
+Exercism exercises in ARM64 Assembly.
 
-Some work has been done to configure this track.
-It has only one exercise (`hello-world`).
+## Contributing
 
-If you wish to work on this track, please post in the [Exercism Community Forum](https://forum.exercism.org/c/exercism/building-exercism/125) to discuss it with the team.
+Please see the [contributing guide](https://exercism.org/docs/building).
+If you wish to work on this track, please post in the [Exercism Community Forum](https://forum.exercism.org/) to discuss it with the team.
+
+## Testing
+
+To test the exercises, run `./bin/verify-exercises`.
+This command will iterate over all exercises and check to see if their exemplar/example implementation passes all the tests.

@@ -2,7 +2,7 @@
 
 #include <stddef.h>
 
-int rectangles(const char **strings);
+extern int rectangles(const char **strings);
 
 void setUp(void) {
 }

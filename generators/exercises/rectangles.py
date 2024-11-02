@@ -3,7 +3,7 @@ FUNC_PROTO = """\
 
 #include <stddef.h>
 
-int rectangles(const char **strings);
+extern int rectangles(const char **strings);
 """
 
 def gen_func_body(prop, inp, expected):

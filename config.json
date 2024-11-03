@@ -283,6 +283,14 @@
         "difficulty": 6
       },
       {
+        "slug": "pythagorean-triplet",
+        "name": "Pythagorean Triplet",
+        "uuid": "31534ce6-3e89-47b4-9246-3928e9d22589",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 8
+      },
+      {
         "slug": "rectangles",
         "name": "Rectangles",
         "uuid": "d06c5066-917e-454c-8549-3af3e8f7bd9f",

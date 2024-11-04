@@ -173,6 +173,35 @@ void test_rectangles_must_have_four_sides(void) {
     TEST_ASSERT_EQUAL_INT(5, rectangles(strings));
 }
 
+void test_very_large_input(void) {
+    TEST_IGNORE();
+    const char *strings[] = {
+      "      +-----+--------+    +-----+ ",
+      "++---++-----+--------+---++-----++",
+      "||+--++-----+-+-++   |   ||     ||",
+      "|||  ||     +-+-++-+ |   ||     ||",
+      "|||  ||     | | || | |   ||     ||",
+      "||| +++-----+-+-++-+-+---++-+   ||",
+      "||| |||     | | || | |+--++-+-+ ||",
+      "||| +++---+-+-+-++-+-++--++-+ | ||",
+      "||| |||+--+-+-+-+| | |+--++---+ ||",
+      "||| ||||  | | | || | |+-+||     ||",
+      "||+-++++--+-+++-++-+-++-+++---++||",
+      "||  |+++--+-+++-+--+-+| |||   ||||",
+      "+++-+++++---++--+-++-++-+++---+|||",
+      " |+-+++++---++--+ || || |||   ||||",
+      " |  +++++---++--+-++-++-++++  ||||",
+      " |   ||||   |+----++-++-++++--+++|",
+      " |   |+++---+|    || || ||    || |",
+      "+++  |||+---++----+| || ||    || |",
+      "|||  +++----++----++-++-++----++-+",
+      "+++---++----++-----+-++-++----++  ",
+      "                      +-+         ",
+      NULL
+    };
+    TEST_ASSERT_EQUAL_INT(2063, rectangles(strings));
+}
+
 int main(void) {
     UNITY_BEGIN();
     RUN_TEST(test_no_rows);
@@ -189,5 +218,6 @@ int main(void) {
     RUN_TEST(test_corner_is_required_for_a_rectangle_to_be_complete);
     RUN_TEST(test_large_input_with_many_rectangles);
     RUN_TEST(test_rectangles_must_have_four_sides);
+    RUN_TEST(test_very_large_input);
     return UNITY_END();
 }

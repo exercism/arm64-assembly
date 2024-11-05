@@ -1,0 +1,36 @@
+name: arm64-assembly / main
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  ci:
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: ubuntu-22.04
+            compiler: gcc
+          - os: ubuntu-22.04
+            compiler: clang
+
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+
+      - name: Install project dependencies (Linux)
+        if: ${{ runner.os == 'Linux' }}
+        run: |
+          sudo apt-get update -q
+          sudo apt-get install -y build-essential qemu-user qemu-user-static binutils-aarch64-linux-gnu gcc-aarch64-linux-gnu
+
+      - name: Run exercism/arm64-assembly ci (runs tests) for all exercises
+        env:
+          CC: ${{ matrix.compiler }}
+          CC_FOR_BUILD: ${{ matrix.compiler }}
+        run: bin/verify-exercises

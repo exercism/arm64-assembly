@@ -283,6 +283,14 @@
         "difficulty": 5
       },
       {
+        "slug": "knapsack",
+        "name": "Knapsack",
+        "uuid": "92dc3c46-5753-4726-88e0-54f93751c5bf",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 6
+      },
+      {
         "slug": "matching-brackets",
         "name": "Matching Brackets",
         "uuid": "fc46f67b-fd96-4aaf-9f8c-9cf0978fb21e",

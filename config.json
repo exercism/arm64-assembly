@@ -291,6 +291,14 @@
         "difficulty": 4
       },
       {
+        "slug": "twelve-days",
+        "name": "Twelve Days",
+        "uuid": "5577113a-b0b0-4a72-94ae-765a52a1de45",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 4
+      },
+      {
         "slug": "all-your-base",
         "name": "All Your Base",
         "uuid": "4e3f2d32-a052-45c2-ba97-2e2584d55650",

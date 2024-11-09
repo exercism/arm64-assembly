@@ -171,6 +171,14 @@
         "difficulty": 3
       },
       {
+        "slug": "resistor-color",
+        "name": "Resistor Color",
+        "uuid": "89cdbbb0-1944-4f73-ac1f-7967ac55c100",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 3
+      },
+      {
         "slug": "scrabble-score",
         "name": "Scrabble Score",
         "uuid": "4c543626-0230-408a-8da4-ee0cd98ce7c0",

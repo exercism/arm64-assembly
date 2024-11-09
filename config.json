@@ -283,6 +283,14 @@
         "difficulty": 5
       },
       {
+        "slug": "sieve",
+        "name": "Sieve",
+        "uuid": "4ca13a1c-d296-4b5c-b5f7-7242b2b8f54b",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 5
+      },
+      {
         "slug": "knapsack",
         "name": "Knapsack",
         "uuid": "92dc3c46-5753-4726-88e0-54f93751c5bf",

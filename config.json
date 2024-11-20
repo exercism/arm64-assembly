@@ -371,6 +371,14 @@
         "difficulty": 6
       },
       {
+        "slug": "variable-length-quantity",
+        "name": "Variable Length Quantity",
+        "uuid": "52f28bf9-4da4-46bc-a293-2054106c6e55",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 6
+      },
+      {
         "slug": "pythagorean-triplet",
         "name": "Pythagorean Triplet",
         "uuid": "31534ce6-3e89-47b4-9246-3928e9d22589",

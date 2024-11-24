@@ -315,6 +315,14 @@
         "difficulty": 5
       },
       {
+        "slug": "house",
+        "name": "House",
+        "uuid": "c9a8b4d1-b034-460f-95ea-56a6e8ce24e0",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 5
+      },
+      {
         "slug": "luhn",
         "name": "Luhn",
         "uuid": "74d44a25-bf7c-452a-9ba7-8b730a05684e",

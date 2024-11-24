@@ -331,6 +331,14 @@
         "difficulty": 5
       },
       {
+        "slug": "pig-latin",
+        "name": "Pig Latin",
+        "uuid": "b820d82b-0539-443a-b929-1ff12d16212c",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 5
+      },
+      {
         "slug": "sieve",
         "name": "Sieve",
         "uuid": "4ca13a1c-d296-4b5c-b5f7-7242b2b8f54b",

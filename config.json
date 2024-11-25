@@ -243,6 +243,14 @@
         "difficulty": 4
       },
       {
+        "slug": "kindergarten-garden",
+        "name": "Kindergarten Garden",
+        "uuid": "0fcea5a1-5764-4f3b-b11b-9850a7e3acfb",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 4
+      },
+      {
         "slug": "perfect-numbers",
         "name": "Perfect Numbers",
         "uuid": "f3a67356-dca2-4cd6-87dc-8e7558d31381",

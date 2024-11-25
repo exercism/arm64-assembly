@@ -15,7 +15,7 @@ is_valid:
         beq     .loop
 
         sub     x1, x1, #1              /* decrement number of digits remaining */
-        sub     x3, x2, #48             /* '0' */
+        sub     x3, x2, #'0'
         cmp     x3, #10
         bhs     .non_digit              /* unsigned >= */
 
@@ -28,7 +28,7 @@ is_valid:
         cbnz    x1, .reject
 
         mov     x3, #10
-        cmp     x2, #88                 /* 'X' */
+        cmp     x2, #'X'
         beq     .add
 
 .reject:

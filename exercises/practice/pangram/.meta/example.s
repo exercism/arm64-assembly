@@ -12,7 +12,7 @@ is_pangram:
         cbz     x3, .return
 
         orr     x3, x3, #32             /* force lower-case */
-        sub     x3, x3, #97
+        sub     x3, x3, #'a'
         cmp     x3, #26
         bhs     .loop                   /* unsigned >= */
 

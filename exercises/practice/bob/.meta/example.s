@@ -18,11 +18,11 @@ response:
         ldrb    w1, [x0], #1            /* load byte, with post-increment */
         cbz     x1, .select_response
 
-        cmp     x1, #32                 /* space */
+        cmp     x1, #' '
         ble     .read
 
         mov     x2, x1                  /* non-whitespace character */
-        sub     x1, x1, #65
+        sub     x1, x1, #'A'
         cmp     x1, #26                 /* upper case? */
         cinc    x3, x3, lo              /* increment on unsigned < */
 
@@ -42,7 +42,7 @@ response:
         add     x3, x3, :lo12:calm
         adrp    x4, whoa
         add     x4, x4, :lo12:whoa
-        cmp     x2, #63                 /* question mark */
+        cmp     x2, #'?'
         csel    x0, x3, x4, eq
         ret
 
@@ -51,7 +51,7 @@ response:
         add     x3, x3, :lo12:sure
         adrp    x4, whatever
         add     x4, x4, :lo12:whatever
-        cmp     x2, #63                 /* question mark */
+        cmp     x2, #'?'
         csel    x0, x3, x4, eq
         ret
 

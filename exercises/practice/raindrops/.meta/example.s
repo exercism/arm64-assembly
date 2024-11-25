@@ -41,7 +41,7 @@ convert:
         mov     x5, x1
         udiv    x1, x5, x3              /* divide value by 10 */
         msub    x6, x1, x3, x5          /* remainder, i.e. output digit */
-        add     w6, w6, #48             /* '0' */
+        add     w6, w6, #'0'
         strb    w6, [x2], #1            /* store, post-increment */
         cbnz    x1, .write              /* loop until value is 0 */
 

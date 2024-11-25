@@ -347,6 +347,14 @@
         "difficulty": 5
       },
       {
+        "slug": "largest-series-product",
+        "name": "Largest Series Product",
+        "uuid": "26f31fed-b645-454e-86d6-c9db6d637f96",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 5
+      },
+      {
         "slug": "luhn",
         "name": "Luhn",
         "uuid": "74d44a25-bf7c-452a-9ba7-8b730a05684e",

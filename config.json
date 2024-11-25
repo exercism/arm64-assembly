@@ -299,6 +299,14 @@
         "difficulty": 4
       },
       {
+        "slug": "secret-handshake",
+        "name": "Secret Handshake",
+        "uuid": "1d848a97-1f23-4d36-8b33-9f0f74da5c92",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 4
+      },
+      {
         "slug": "twelve-days",
         "name": "Twelve Days",
         "uuid": "5577113a-b0b0-4a72-94ae-765a52a1de45",

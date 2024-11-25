@@ -12,19 +12,19 @@ nucleotide_counts:
         ldrb    w2, [x1], #1            /* load byte, post-increment */
         cbz     w2, .report
 
-        cmp     w2, 'A'
+        cmp     w2, #'A'
         beq     .adenine
 
-        cmp     w2, 'C'
+        cmp     w2, #'C'
         beq     .cytosine
 
-        cmp     w2, 'G'
+        cmp     w2, #'G'
         beq     .guanine
 
-        cmp     w2, 'T'
+        cmp     w2, #'T'
         beq     .thymine
 
-        mov     w2, -1
+        mov     w2, #-1
         strh    w2, [x0], #2
         strh    w2, [x0], #2
         strh    w2, [x0], #2

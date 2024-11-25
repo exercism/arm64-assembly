@@ -11,12 +11,12 @@ vowels:
 # | -------- | ------------ | ------- | --------------------------------------- |
 # | `x0`     | input/output | address | output pointer                          |
 # | `x1`     | input        | address | beginning of word(s)                    |
-# | `x3`     | temporary    | byte    | previous letter in word                 |
-# | `x4`     | temporary    | byte    | current letter in word                  |
-# | `x5`     | temporary    | byte    | second letter in word                   |
-# | `x6`     | temporary    | byte    | non-zero when current letter is a vowel |
-# | `x7`     | temporary    | byte    | 'a'                                     |
-# | `x8`     | temporary    | byte    | 'y'                                     |
+# | `w3`     | temporary    | byte    | previous letter in word                 |
+# | `w4`     | temporary    | byte    | current letter in word                  |
+# | `w5`     | temporary    | byte    | second letter in word                   |
+# | `w6`     | temporary    | byte    | non-zero when current letter is a vowel |
+# | `w7`     | temporary    | byte    | 'a'                                     |
+# | `w8`     | temporary    | byte    | 'y'                                     |
 # | `x9`     | temporary    | address | vowels table, minus 'a'                 |
 # | `x10`    | temporary    | address | position in current word                |
 # | `x11`    | temporary    | address | end of current word                     |

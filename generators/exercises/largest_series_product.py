@@ -33,4 +33,4 @@ def gen_func_body(prop, inp, expected):
         expectations["span must be smaller than string length"] = "INSUFFICIENT_DIGITS"
         expected = expectations[expected["error"]]
 
-    return f"TEST_ASSERT_EQUAL_INT({expected}, largest_product({span}, \"{digits}\"));\n"
+    return f"TEST_ASSERT_EQUAL_INT64({expected}, largest_product({span}, \"{digits}\"));\n"

@@ -4,7 +4,13 @@
 /* extern uint64_t square_root(uint64_t radicand); */
 square_root:
         mov     x1, x0                  /* radicand */
-        mov     x0, #1                  /* initial guess */
+
+        clz     x0, x1                  /* count leading zero bits */
+        mov     x2, #64
+        sub     x0, x2, x0              /* number of bits, excluding leading zero bits */
+        lsr     x0, x0, #1              /* number of bits, halved */
+        mov     x2, #1
+        lsl     x0, x2, x0              /* initial guess */
 
 .loop:
         mov     x2, x0                  /* current guess */

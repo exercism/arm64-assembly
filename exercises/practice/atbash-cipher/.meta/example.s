@@ -15,19 +15,19 @@ decode:
 
 process:
         mov     x3, x2                  /* remaining letters in group */
-        mov     w6, 32                  /* space */
-        mov     w7, #122                /* 'z' */
+        mov     w6, #' '
+        mov     w7, #'z'
 
 .read:
         ldrb    w4, [x1], #1            /* load byte, post-increment */
         cbz     w4, .end
 
-        sub     w5, w4, #48             /* '0' */
+        sub     w5, w4, #'0'
         cmp     w5, #10
         blo     .accept                 /* unsigned < */
 
         orr     w5, w4, #32             /* force lower case */
-        sub     w5, w5, 97              /* 'a' */
+        sub     w5, w5, #'a'
         cmp     w5, #26
         bhs     .read                   /* unsigned >= */
 

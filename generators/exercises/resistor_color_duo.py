@@ -3,12 +3,16 @@ FUNC_PROTO = """\
 
 #include <stddef.h>
 
-extern int value(const char *first, const char *second, const char *third);
+extern int value(const char **colors);
 """
 
 def gen_func_body(prop, inp, expected):
     colors = inp["colors"]
-    if len(colors) == 2:
-        return f'TEST_ASSERT_EQUAL_INT({expected}, {prop}("{colors[0]}", "{colors[1]}", NULL));\n'
-    else:
-        return f'TEST_ASSERT_EQUAL_INT({expected}, {prop}("{colors[0]}", "{colors[1]}", "{colors[2]}"));\n'
+    str_list = []
+    str_list.append('const char *colors[] = {')
+    for color in colors:
+        str_list.append(f'  "{color}",')
+    str_list.append(f'  NULL')
+    str_list.append('};')
+    str_list.append(f'TEST_ASSERT_EQUAL_INT({expected}, {prop}(colors));\n')
+    return "\n".join(str_list)

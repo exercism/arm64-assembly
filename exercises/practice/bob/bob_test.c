@@ -129,8 +129,8 @@ void test_alternate_silence(void) {
 
 void test_multiple_line_question(void) {
     TEST_IGNORE();
-    char str[] = "\nDoes this cryogenic chamber make me look fat?\nNo.";
-    TEST_ASSERT_EQUAL_STRING("Whatever.", response(str));
+    char str[] = "\nDoes this cryogenic chamber make\n me look fat?";
+    TEST_ASSERT_EQUAL_STRING("Sure.", response(str));
 }
 
 void test_starting_with_whitespace(void) {

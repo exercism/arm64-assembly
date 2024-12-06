@@ -443,6 +443,14 @@
         "difficulty": 6
       },
       {
+        "slug": "minesweeper",
+        "name": "Minesweeper",
+        "uuid": "d5008701-7328-4115-a85b-93c950a96a29",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 7
+      },
+      {
         "slug": "pythagorean-triplet",
         "name": "Pythagorean Triplet",
         "uuid": "31534ce6-3e89-47b4-9246-3928e9d22589",

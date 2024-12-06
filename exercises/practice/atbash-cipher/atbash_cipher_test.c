@@ -123,6 +123,14 @@ void test_decode_with_no_spaces(void) {
     TEST_ASSERT_EQUAL_STRING("anobstacleisoftenasteppingstone", buffer);
 }
 
+void test_encode_boundary_characters(void) {
+    TEST_IGNORE();
+    char buffer[BUFFER_SIZE];
+
+    encode(buffer, "/09:@AMNZ[`amnz{");
+    TEST_ASSERT_EQUAL_STRING("09znm aznma", buffer);
+}
+
 int main(void) {
     UNITY_BEGIN();
     RUN_TEST(test_encode_yes);
@@ -139,5 +147,6 @@ int main(void) {
     RUN_TEST(test_decode_all_the_letters);
     RUN_TEST(test_decode_with_too_many_spaces);
     RUN_TEST(test_decode_with_no_spaces);
+    RUN_TEST(test_encode_boundary_characters);
     return UNITY_END();
 }

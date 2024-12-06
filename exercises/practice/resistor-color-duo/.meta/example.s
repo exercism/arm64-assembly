@@ -27,9 +27,9 @@ color_array:
 .globl value
 
 color_code:
-        adrp    x7, color_array
-        add     x7, x7, :lo12:color_array
-        mov     x2, x7
+        adrp    x1, color_array
+        add     x1, x1, :lo12:color_array
+        mov     x2, x1
 
 .next:
         mov     x3, x0
@@ -44,18 +44,20 @@ color_code:
         cbnz    w5, .compare
 
         sub     x2, x2, #8
-        sub     x0, x2, x7
+        sub     x0, x2, x1
         lsr     x0, x0, #3
         ret
 
-/* extern int value(const char *first, const char *second, const char *third); */
+/* extern int value(const char **colors); */
 value:
-        mov     x9, lr
+        mov     x8, x0
+        mov     x9, lr                 /* preserve return address */
+        mov     x10, #10
+        ldr     x0, [x8], #8           /* load address of first color */
         bl      color_code
         mov     x11, x0
-        mov     x0, x1
+        ldr     x0, [x8]               /* load address of second color */
         bl      color_code
-        mov     x10, #10
         madd    x0, x10, x11, x0
         mov     lr, x9
         ret

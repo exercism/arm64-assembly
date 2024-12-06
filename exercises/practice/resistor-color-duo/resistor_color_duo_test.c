@@ -2,7 +2,7 @@
 
 #include <stddef.h>
 
-extern int value(const char *first, const char *second, const char *third);
+extern int value(const char **colors);
 
 void setUp(void) {
 }
@@ -11,37 +11,73 @@ void tearDown(void) {
 }
 
 void test_brown_and_black(void) {
-    TEST_ASSERT_EQUAL_INT(10, value("brown", "black", NULL));
+    const char *colors[] = {
+      "brown",
+      "black",
+      NULL
+    };
+    TEST_ASSERT_EQUAL_INT(10, value(colors));
 }
 
 void test_blue_and_grey(void) {
     TEST_IGNORE();
-    TEST_ASSERT_EQUAL_INT(68, value("blue", "grey", NULL));
+    const char *colors[] = {
+      "blue",
+      "grey",
+      NULL
+    };
+    TEST_ASSERT_EQUAL_INT(68, value(colors));
 }
 
 void test_yellow_and_violet(void) {
     TEST_IGNORE();
-    TEST_ASSERT_EQUAL_INT(47, value("yellow", "violet", NULL));
+    const char *colors[] = {
+      "yellow",
+      "violet",
+      NULL
+    };
+    TEST_ASSERT_EQUAL_INT(47, value(colors));
 }
 
 void test_white_and_red(void) {
     TEST_IGNORE();
-    TEST_ASSERT_EQUAL_INT(92, value("white", "red", NULL));
+    const char *colors[] = {
+      "white",
+      "red",
+      NULL
+    };
+    TEST_ASSERT_EQUAL_INT(92, value(colors));
 }
 
 void test_orange_and_orange(void) {
     TEST_IGNORE();
-    TEST_ASSERT_EQUAL_INT(33, value("orange", "orange", NULL));
+    const char *colors[] = {
+      "orange",
+      "orange",
+      NULL
+    };
+    TEST_ASSERT_EQUAL_INT(33, value(colors));
 }
 
 void test_ignore_additional_colors(void) {
     TEST_IGNORE();
-    TEST_ASSERT_EQUAL_INT(51, value("green", "brown", "orange"));
+    const char *colors[] = {
+      "green",
+      "brown",
+      "orange",
+      NULL
+    };
+    TEST_ASSERT_EQUAL_INT(51, value(colors));
 }
 
 void test_black_and_brown_onedigit(void) {
     TEST_IGNORE();
-    TEST_ASSERT_EQUAL_INT(1, value("black", "brown", NULL));
+    const char *colors[] = {
+      "black",
+      "brown",
+      NULL
+    };
+    TEST_ASSERT_EQUAL_INT(1, value(colors));
 }
 
 int main(void) {

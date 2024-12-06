@@ -3,9 +3,7 @@
 #include <stdint.h>
 
 extern uint64_t square_of_sum(uint64_t number);
-
 extern uint64_t sum_of_squares(uint64_t number);
-
 extern uint64_t difference_of_squares(uint64_t number);
 
 void setUp(void) {

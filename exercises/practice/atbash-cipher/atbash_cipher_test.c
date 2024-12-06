@@ -3,7 +3,6 @@
 #define BUFFER_SIZE 80
 
 extern void encode(char *buffer, const char *phrase);
-
 extern void decode(char *buffer, const char *phrase);
 
 void setUp(void) {

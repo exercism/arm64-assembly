@@ -6,6 +6,19 @@ FUNC_PROTO = """\
 extern void rotate(char *buffer, const char *text, int shift_key);
 """
 
+def extra_cases():
+    return [
+        {
+            "description": "rotate boundary characters",
+            "property": "rotate",
+            "input": {
+                "text": "/09:@AMNZ[`amnz{",
+                "shiftKey": 13
+            },
+            "expected": "/09:@NZAM[`nzam{"
+        }
+    ]
+
 def gen_func_body(prop, inp, expected):
     text = inp["text"]
     shift_key = inp["shiftKey"]

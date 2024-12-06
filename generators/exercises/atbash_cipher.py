@@ -8,6 +8,18 @@ extern void encode(char *buffer, const char *phrase);
 extern void decode(char *buffer, const char *phrase);
 """
 
+def extra_cases():
+    return [
+        {
+            "description": "encode boundary characters",
+            "property": "encode",
+            "input": {
+                "phrase": "/09:@AMNZ[`amnz{"
+            },
+            "expected": "09znm aznma"
+        }
+    ]
+
 def gen_func_body(prop, inp, expected):
     phrase = inp["phrase"]
     str_list = []

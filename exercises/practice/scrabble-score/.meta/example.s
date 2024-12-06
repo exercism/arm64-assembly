@@ -6,7 +6,8 @@ table: .byte 1, 3, 3, 2, 1, 4, 2, 4, 1, 8, 5, 1, 3, 1, 1, 3, 10, 1, 1, 1, 1, 4, 
 
 /* extern int score(const char *word); */
 score:
-        adr     x1, table
+        adrp    x1, table
+        add     x1, x1, :lo12:table
         mov     x2, x0                  /* pointer into word */
         mov     w0, #0                  /* result */
 

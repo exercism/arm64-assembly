@@ -4,9 +4,8 @@
 
 /* extern void encode(char *buffer, const char *phrase); */
 encode:
-        mov     x2, #5                  /* no groups */
+        mov     x2, #5                  /* group length */
         b       process
-        ret
 
 /* extern void decode(char *buffer, const char *phrase); */
 decode:

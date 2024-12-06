@@ -387,6 +387,14 @@
         "difficulty": 5
       },
       {
+        "slug": "run-length-encoding",
+        "name": "Run-Length Encoding",
+        "uuid": "e2cb9eb9-c1fd-44a9-a7fa-ac8199d1680d",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 5
+      },
+      {
         "slug": "sieve",
         "name": "Sieve",
         "uuid": "4ca13a1c-d296-4b5c-b5f7-7242b2b8f54b",

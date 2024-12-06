@@ -89,6 +89,14 @@ void test_word_beginning_with_q_without_a_following_u(void) {
     TEST_ASSERT_EQUAL_STRING("atqay", buffer);
 }
 
+void test_word_beginning_with_consonant_and_vowel_containing_qu(void) {
+    TEST_IGNORE();
+    char buffer[BUFFER_SIZE];
+
+    translate(buffer, "liquid");
+    TEST_ASSERT_EQUAL_STRING("iquidlay", buffer);
+}
+
 void test_word_beginning_with_ch(void) {
     TEST_IGNORE();
     char buffer[BUFFER_SIZE];
@@ -197,6 +205,7 @@ int main(void) {
     RUN_TEST(test_word_beginning_with_k);
     RUN_TEST(test_word_beginning_with_x);
     RUN_TEST(test_word_beginning_with_q_without_a_following_u);
+    RUN_TEST(test_word_beginning_with_consonant_and_vowel_containing_qu);
     RUN_TEST(test_word_beginning_with_ch);
     RUN_TEST(test_word_beginning_with_qu);
     RUN_TEST(test_word_beginning_with_qu_and_a_preceding_consonant);

@@ -493,7 +493,10 @@
     ],
     "foregone": [
       "bank-account",
-      "parallel-letter-frequency"
+      "grep",
+      "lens-person",
+      "parallel-letter-frequency",
+      "robot-name"
     ]
   },
   "tags": [

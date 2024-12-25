@@ -14,23 +14,26 @@
 .equ SUNDAY, 7
 
 .data
+
+/* offset from end February for the start of the specified month */
 offset_array:
         .hword -1
-        .hword -1
-        .hword -1
-        .hword 2 /* March */
-        .hword 33
-        .hword 63
-        .hword 94
-        .hword 124
-        .hword 155
-        .hword 186
-        .hword 216
-        .hword 247
-        .hword 277
-        .hword 308
-        .hword 339 /* February */
+        .hword 307
+        .hword 338
+        .hword 1 /* March */
+        .hword 32
+        .hword 62
+        .hword 93
+        .hword 123
+        .hword 154
+        .hword 185
+        .hword 215
+        .hword 246
+        .hword 276
+        .hword 307
+        .hword 338 /* February */
 
+/* day in month for last day in specified week */
 week_array:
         .byte -1
         .byte 7 /* first */
@@ -42,119 +45,145 @@ week_array:
 .text
 .globl meetup
 
-/* extern void meetup(char *buffer, int year, int month, week_t week, dayofweek_t dayofweek); */
-meetup:
-        adrp    x5, offset_array
-        add     x5, x5, :lo12:offset_array
+/* void print_date(char *buffer, int year, int month, int day); */
+print_date:
+        mov    w9, #'-'
+        mov    w10, 10                  /* divisor */
 
-        mov     w7, w1                  /* adjusted year */
-        mov     w8, w2                  /* adjusted month */
-        cmp     w2, #2
-        bgt     .find_offset
-
-        sub     w7, w7, #1
-        add     w8, w8, #12             /* Consider January and February to be the 13th and 14th months of previous year */
-
-.find_offset:
-        lsl     w8, w8, #1
-        ldrh    w9, [x5, x8]            /* offset */
-        cmp     w3, LAST
-        beq     .last
-
-        adrp    x6, week_array
-        add     x6, x6, :lo12:week_array
-        ldrb    w3, [x6, x3]            /* day in month at end of requested week */
-
-.total:
-        mov     w5, w7                  /* adjusted year */
-
-        lsr     w7, w7, #2              /* adjusted year / 4 */
-        add     w5, w5, w7
-
-        mov     w10, #25
-        udiv    w7, w7, w10             /* adjusted year / 100 */
-        sub     w5, w5, w7
-
-        lsr     w7, w7, #2              /* adjusted year / 400 */
-        add     w5, w5, w7
-
-        add     w5, w5, w9              /* add offset */
-        add     w5, w5, w3              /* add day in month at end of requested week */
-        mov     w10, #7
-        udiv    w12, w5, w10            /* quotient */
-        msub    w13, w12, w10, w5       /* remainder */
-
-        add     w6, w3, w4
-        sub     w6, w6, w13
-        cmp     w6, w3
-        ble     .write
-
-        sub     w6, w6, #7
-
-.write:
-        mov     w10, #'-'
-        strb    w10, [x0, #4]
-        strb    w10, [x0, #7]
-        strb    wzr, [x0, #10]
-
-        mov     w10, 10                 /* divisor */
-
-        mov     w11, w1                 /* year */
-        udiv    w12, w11, w10           /* quotient */
-        msub    w13, w12, w10, w11      /* remainder */
-        mov     w11, w12
+        udiv    w11, w1, w10            /* quotient */
+        msub    w13, w11, w10, w1       /* remainder (year) */
         add     w13, w13, #'0'
         strb    w13, [x0, #3]
 
         udiv    w12, w11, w10           /* quotient */
-        msub    w13, w12, w10, w11      /* remainder */
-        mov     w11, w12
+        msub    w13, w12, w10, w11      /* remainder (decade) */
         add     w13, w13, #'0'
         strb    w13, [x0, #2]
 
-        udiv    w12, w11, w10           /* quotient */
-        msub    w13, w12, w10, w11      /* remainder */
+        udiv    w11, w12, w10           /* quotient */
+        msub    w13, w11, w10, w12      /* remainder (century) */
         add     w13, w13, #'0'
         strb    w13, [x0, #1]
+        add     w11, w11, #'0'
+        strb    w11, [x0]
 
-        add     w12, w12, #'0'
-        strb    w12, [x0]
+        strb    w9, [x0, #4]
 
-        mov     w11, w2                 /* month */
-        udiv    w12, w11, w10           /* quotient */
-        msub    w13, w12, w10, w11      /* remainder */
+        udiv    w11, w2, w10            /* quotient */
+        msub    w13, w11, w10, w2       /* remainder (month) */
         add     w13, w13, #'0'
         strb    w13, [x0, #6]
+        add     w11, w11, #'0'
+        strb    w11, [x0, #5]
 
-        add     w12, w12, #'0'
-        strb    w12, [x0, #5]
+        strb    w9, [x0, #7]
 
-        mov     w11, w6                 /* day in month */
-        udiv    w12, w11, w10           /* quotient */
-        msub    w13, w12, w10, w11      /* remainder */
+        udiv    w11, w3, w10            /* quotient */
+        msub    w13, w11, w10, w3       /* remainder (day) */
         add     w13, w13, #'0'
         strb    w13, [x0, #9]
+        add     w11, w11, #'0'
+        strb    w11, [x0, #8]
 
-        add     w12, w12, #'0'
-        strb    w12, [x0, #8]
+        strb    wzr, [x0, #10]
         ret
 
-.last:
-        cmp     w2, #2
-        beq     .february
-
-        add     w8, w8, #2
-        ldrh    w10, [x5, x8]           /* offset */
-        sub     w3, w10, w9
-        b       .total
-
-.february:
+/* int leap_year(void *unused, int year); */
+leap_year:
         mov     w10, #100               /* divisor */
         udiv    w12, w1, w10            /* quotient, i.e. century */
         msub    w13, w12, w10, w1       /* remainder, i.e. year within century */
         tst     w13, w13                /* check if 0 */
-        csel    w3, w12, w13, eq        /* either century, or year within century */
-        tst     w3, #3                  /* check if multiple of 4 */
-        cset    w3, eq
-        add     w3, w3, #28
-        b       .total
+        csel    w0, w12, w13, eq        /* either century, or year within century */
+        tst     w0, #3                  /* check if multiple of 4 */
+        cset    w0, eq
+        ret
+
+/* int days_in_month(void *unused, int year, int month); */
+days_in_month:
+        cmp     w2, #2
+        beq     .february
+
+        adrp    x9, offset_array
+        add     x9, x9, :lo12:offset_array
+
+        lsl     w10, w2, #1             /* month * sizeof(hword) */
+        ldrh    w11, [x9, x10]          /* days offset for required month */
+
+        add     w10, w10, #2            /* (month + 1) * sizeof(hword) */
+        ldrh    w0, [x9, x10]           /* days offset for following month */
+
+        sub     w0, w0, w11
+        ret
+
+.february:
+        mov     x11, lr
+        bl      leap_year
+        add     w0, w0, #28
+        ret     x11
+
+/* int week_concludes(void *unused, int year, int month, week_t week); */
+week_concludes:
+        cmp     w3, LAST
+        beq     days_in_month           /* tail call */
+
+        adrp    x9, week_array
+        add     x9, x9, :lo12:week_array
+        ldrb    w0, [x9, x3]            /* day in month at end of requested week */
+        ret
+
+/* dayofweek_t day_of_week(void *unused, int year, int month, int day); */
+day_of_week:
+        mov     w12, w2                 /* month */
+        mov     w11, w1                 /* year */
+
+        add     w10, w12, #12           /* Consider January and February to be the 13th and 14th months of */
+        sub     w9, w11, #1             /* the previous year */
+        cmp     w2, #2
+        csel    w12, w12, w10, hi       /* Conditionally adjust month */
+        csel    w11, w11, w9, hi        /* Conditionally adjust year */
+
+        lsl     w12, w12, #1            /* (adjusted month) * sizeof(hword) */
+        adrp    x9, offset_array
+        add     x9, x9, :lo12:offset_array
+        ldrh    w13, [x9, x12]          /* days offset for required month */
+
+        mov     w0, w11                 /* adjusted year */
+
+        lsr     w11, w11, #2            /* adjusted year / 4 */
+        add     w0, w0, w11
+
+        mov     w9, #25
+        udiv    w11, w11, w9            /* adjusted year / 100 */
+        sub     w0, w0, w11
+
+        lsr     w11, w11, #2            /* adjusted year / 400 */
+        add     w0, w0, w11
+
+        add     w0, w0, w13             /* add offset */
+        add     w0, w0, w3              /* add day in month */
+
+        mov     w9, #7
+        udiv    w10, w0, w9             /* quotient */
+        msub    w0, w10, w9, w0         /* remainder */
+        add     w0, w0, #1              /* day of week, in range 1..7 */
+        ret
+
+/* extern void meetup(char *buffer, int year, int month, week_t week, dayofweek_t dayofweek); */
+meetup:
+        mov     x14, x0                 /* buffer */
+        mov     x15, lr                 /* return address */
+        bl      week_concludes
+
+        mov     w3, w0                  /* day of month when week concludes */
+        bl      day_of_week
+
+        sub     w0, w4, w0              /* delta: requested day of week minus current day of week */
+        sub     w9, w0, #7
+        cmp     w0, wzr
+        csel    w0, w0, w9, le          /* if delta was positive, subtract 7 */
+        add     w3, w3, w0              /* required day of month */
+        mov     x0, x14                 /* buffer */
+        bl      print_date
+
+        ret     x15

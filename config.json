@@ -427,6 +427,14 @@
         "difficulty": 5
       },
       {
+        "slug": "space-age",
+        "name": "Space Age",
+        "uuid": "1e130251-397b-4a76-baf0-5b6498900edc",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 5
+      },
+      {
         "slug": "knapsack",
         "name": "Knapsack",
         "uuid": "92dc3c46-5753-4726-88e0-54f93751c5bf",

@@ -1,9 +1,9 @@
 .section .rodata
-msg: .string "Goodbye, Mars!"
+msg: .string "Hello, World!"
 
 .text
-.global hello
-hello:
+.global act_hello
+act_hello:
     adrp x0, msg
     add x0, x0, :lo12:msg
     ret

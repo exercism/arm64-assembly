@@ -2,7 +2,7 @@ AS = aarch64-linux-gnu-as
 CC = aarch64-linux-gnu-gcc
 
 CFLAGS = -g -Wall -Wextra -pedantic -Werror
-LDFLAGS =
+LDFLAGS = linker_script
 
 ALL_LDFLAGS = -pie -Wl,--fatal-warnings
 

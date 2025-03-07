@@ -3,9 +3,9 @@ FUNC_PROTO = """\
 
 #include <stdint.h>
 
-#define BUFFER_SIZE 16
+#define BUFFER_SIZE 24
 
-extern void convert(char *buffer, uint64_t number);
+extern void convert(char *buffer, uint32_t number);
 """
 
 def extra_cases():
@@ -22,7 +22,7 @@ def extra_cases():
             "description": "large positive",
             "property": "convert",
             "input": {
-                "number": '9223372036854775905U'
+                "number": '3234846615U'
             },
             "expected": "PlingPlangPlong"
         }

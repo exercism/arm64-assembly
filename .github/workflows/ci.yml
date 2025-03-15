@@ -19,15 +19,20 @@ jobs:
             compiler: gcc
           - os: ubuntu-22.04
             compiler: clang
+          - os: ubuntu-22.04-arm
+            compiler: gcc
+          - os: ubuntu-22.04-arm
+            compiler: clang
+
 
     steps:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
 
-      - name: Install project dependencies (Linux)
-        if: ${{ runner.os == 'Linux' }}
+      - name: Install cross compiler and QEMU if not running on ARM64
+        if: ${{ runner.arch != 'ARM64' }}
         run: |
           sudo apt-get update -q
-          sudo apt-get install -y build-essential qemu-user qemu-user-static binutils-aarch64-linux-gnu gcc-aarch64-linux-gnu
+          sudo apt-get install -y qemu-user gcc-aarch64-linux-gnu
 
       - name: Run exercism/arm64-assembly ci (runs tests) for all exercises
         env:

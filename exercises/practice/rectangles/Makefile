@@ -15,8 +15,15 @@ ALL_OBJS = $(filter-out example.o,$(C_OBJS) $(AS_OBJS) vendor/unity.o)
 
 CC_CMD = $(CC) $(ALL_CFLAGS) -c -o $@ $<
 
+PLATFORM = $(shell uname -m)
+ifeq ($(PLATFORM),aarch64)
+	MAYBE_QEMU =
+else
+	MAYBE_QEMU = qemu-aarch64 -L /usr/aarch64-linux-gnu
+endif
+
 all: tests
-	qemu-aarch64 -L /usr/aarch64-linux-gnu ./$<
+	@$(MAYBE_QEMU) ./$<
 
 tests: $(ALL_OBJS)
 	@$(CC) $(ALL_CFLAGS) $(ALL_LDFLAGS) -o $@ $(ALL_OBJS)

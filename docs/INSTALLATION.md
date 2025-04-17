@@ -1,8 +1,8 @@
 # Installation
 
-## Debian / Ubuntu
+## Ubuntu (and most other Debian-based distributions)
 
-gcc and make can be installed using
+To build code locally, you will need gcc and make, which can be installed using
 
 ```shell
 sudo apt install gcc make
@@ -16,7 +16,8 @@ sudo apt install qemu-user gcc-aarch64-linux-gnu
 
 ## Windows
 
-Use [Windows Subsystem for Linux][], or set up a Linux virtual machine.
+Use [Windows Subsystem for Linux][] with a Debian-based distribution and follow the Ubuntu instructions from above.
+Alternatively, set up a Linux virtual machine.
 
 ## macOS
 

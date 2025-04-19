@@ -430,6 +430,14 @@
         "difficulty": 5
       },
       {
+        "slug": "protein-translation",
+        "name": "Protein Translation",
+        "uuid": "6acc8208-3790-4742-bbf4-dbf22cbd6a4f",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 5
+      },
+      {
         "slug": "run-length-encoding",
         "name": "Run-Length Encoding",
         "uuid": "e2cb9eb9-c1fd-44a9-a7fa-ac8199d1680d",

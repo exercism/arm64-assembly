@@ -454,6 +454,14 @@
         "difficulty": 5
       },
       {
+        "slug": "crypto-square",
+        "name": "Crypto Square",
+        "uuid": "e85610c7-3121-4083-9346-c43651bddc96",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 6
+      },
+      {
         "slug": "knapsack",
         "name": "Knapsack",
         "uuid": "92dc3c46-5753-4726-88e0-54f93751c5bf",

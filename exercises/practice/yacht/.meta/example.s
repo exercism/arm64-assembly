@@ -92,73 +92,47 @@ score:
         b       .return
 
 .little_straight:
+        mov     w9, #30
         cmp     w10, 1
-        bne     .return
-
-        cmp     w11, 2
-        bne     .return
-
-        cmp     w12, 3
-        bne     .return
-
-        cmp     w13, 4
-        bne     .return
-
-        cmp     w14, 5
-        bne     .return
-
-        mov     w0, #30
+        ccmp    w11, 2, #0, eq
+        ccmp    w12, 3, #0, eq
+        ccmp    w13, 4, #0, eq
+        ccmp    w14, 5, #0, eq
+        csel    w0, w9, wzr, eq
         b       .return
 
 .big_straight:
+        mov     w9, #30
         cmp     w10, 2
-        bne     .return
-
-        cmp     w11, 3
-        bne     .return
-
-        cmp     w12, 4
-        bne     .return
-
-        cmp     w13, 5
-        bne     .return
-
-        cmp     w14, 6
-        bne     .return
-
-        mov     w0, #30
+        ccmp    w11, 3, #0, eq
+        ccmp    w12, 4, #0, eq
+        ccmp    w13, 5, #0, eq
+        ccmp    w14, 6, #0, eq
+        csel    w0, w9, wzr, eq
         b       .return
 
 .full_house:
         cmp     w10, w11
-        bne     .return
-
-        cmp     w13, w14
-        bne     .return
-
-        cmp     w11, w13
+        ccmp    w13, w14, #0, eq
+        ccmp    w11, w13, #4, eq
         beq     .return
 
         mov     w2, wzr
         cmp     w11, w12
-        beq     .total
-
-        cmp     w12, w13
+        ccmp    w12, w13, #4, ne
         beq     .total
 
         b       .return
 
 .four_of_a_kind:
-        mov     w2, w12
+        mov     w2, w12                 /* use middle value as category */
 
         neg     w0, w12
         cmp     w10, w14
         csel    w0, w0, wzr, eq         /* if all match, only count four */
 
         cmp     w10, w13
-        beq     .total
-
-        cmp     w11, w14
+        ccmp    w11, w14, #4, ne
         bne     .return
 
 .total:

@@ -4,7 +4,7 @@ FUNC_PROTO = """\
 #include <stdint.h>
 
 typedef enum {
-    CHOICE,
+    CHOICE = 0,
     ONES,
     TWOS,
     THREES,
@@ -18,7 +18,7 @@ typedef enum {
     YACHT,
 } category_t;
 
-extern int score(category_t category, const uint16_t* dice);
+extern int score(category_t category, const uint16_t *dice);
 """
 
 def array_literal(digits):

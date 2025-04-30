@@ -3,7 +3,7 @@
 .globl decode
 
 encode:
-    ret
+        ret
 
 decode:
-    ret
+        ret

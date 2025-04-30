@@ -27,10 +27,7 @@ process:
 .traverse:
         mov     x12, xzr                /* offset into string */
         mov     x13, xzr                /* offset into rail counts */
-        mov     x14, #-16               /* direction */
-
-.reverse:
-        neg     x14, x14
+        mov     x14, #16                /* direction */
 
 .next:
         ldrb    w8, [x1, x12]
@@ -56,12 +53,9 @@ process:
         strb    w19, [x0, x17]          /* write to buffer */
 
 .advance:
-        add     x13, x13, x14
-        cbz     x13, .reverse           /* first rail? */
-
-        cmp     x13, x15
-        beq     .reverse                /* last rail? */
-
+        adds    x13, x13, x14           /* rail */
+        ccmp    x13, x15, #4, ne        /* first rail orelse last rail? */
+        cneg    x14, x14, eq
         b       .next
 
 .null_terminator:

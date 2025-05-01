@@ -158,14 +158,6 @@
         "difficulty": 3
       },
       {
-        "slug": "rna-transcription",
-        "name": "RNA Transcription",
-        "uuid": "ddfea5dc-0838-4a35-9936-1fb72cd7b1c4",
-        "practices": [],
-        "prerequisites": [],
-        "difficulty": 3
-      },
-      {
         "slug": "raindrops",
         "name": "Raindrops",
         "uuid": "4f701cd9-698e-4528-b3f5-18b5459d880f",
@@ -193,6 +185,14 @@
         "slug": "resistor-color-trio",
         "name": "Resistor Color Trio",
         "uuid": "bae67e03-a8ce-4774-8dcf-342251eb4de9",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 3
+      },
+      {
+        "slug": "rna-transcription",
+        "name": "RNA Transcription",
+        "uuid": "ddfea5dc-0838-4a35-9936-1fb72cd7b1c4",
         "practices": [],
         "prerequisites": [],
         "difficulty": 3
@@ -321,6 +321,14 @@
         "slug": "secret-handshake",
         "name": "Secret Handshake",
         "uuid": "1d848a97-1f23-4d36-8b33-9f0f74da5c92",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 4
+      },
+      {
+        "slug": "sublist",
+        "name": "Sublist",
+        "uuid": "580a36f7-e17b-4262-b678-5e56f633d94e",
         "practices": [],
         "prerequisites": [],
         "difficulty": 4

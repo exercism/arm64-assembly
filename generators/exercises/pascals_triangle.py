@@ -7,7 +7,7 @@ FUNC_PROTO = """\
 #define MAX_ARRAY_SIZE 800
 #define ARRAY_SIZE(x) (sizeof(x) / sizeof((x)[0]))
 
-extern size_t rows(uint64_t* dest, size_t count);
+extern size_t rows(uint64_t *dest, size_t count);
 """
 
 def extra_cases():
@@ -65,8 +65,10 @@ def gen_func_body(prop, inp, expected):
     str_list = []
     if count > 0:
         str_list.append('uint64_t expected[] = {')
+        str_list.append('    // clang-format off')
         for row in expected:
             str_list.append('    ' + ', '.join(map(str, row)) + ',')
+        str_list.append('    // clang-format on')
         str_list.append('};')
 
     str_list.append('uint64_t actual[MAX_ARRAY_SIZE];')

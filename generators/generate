@@ -107,6 +107,7 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("exercise")
     parser.add_argument("-i", "--ignore-toml", action="store_true")
+    parser.add_argument("-f", "--format", action="store_true", help="format test file with clang-format")
     args = parser.parse_args()
     data = read_canonical_data(args.exercise)
     cases = flatten_cases(data)
@@ -124,6 +125,10 @@ def main():
     path = f"{sys.path[0]}/../exercises/practice/{args.exercise}/{exercise}_test.c"
     with open(path, "w") as f:
         f.write(s)
+    if args.format:
+        args = ['clang-format', '-i', path]
+        subprocess.run(args, check=True)
+
 
 
 if __name__ == "__main__":

@@ -16,10 +16,7 @@ jobs:
       matrix:
         include:
           - os: ubuntu-22.04
-            compiler: gcc
           - os: ubuntu-22.04-arm
-            compiler: gcc
-
 
     steps:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
@@ -31,7 +28,4 @@ jobs:
           sudo apt-get install -y qemu-user gcc-aarch64-linux-gnu
 
       - name: Run exercism/arm64-assembly ci (runs tests) for all exercises
-        env:
-          CC: ${{ matrix.compiler }}
-          CC_FOR_BUILD: ${{ matrix.compiler }}
         run: bin/verify-exercises

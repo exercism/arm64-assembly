@@ -6,7 +6,7 @@
 #define MAX_ARRAY_SIZE 800
 #define ARRAY_SIZE(x) (sizeof(x) / sizeof((x)[0]))
 
-extern size_t rows(uint64_t* dest, size_t count);
+extern size_t rows(uint64_t *dest, size_t count);
 
 void setUp(void) {
 }
@@ -23,7 +23,9 @@ void test_zero_rows(void) {
 void test_single_row(void) {
     TEST_IGNORE();
     uint64_t expected[] = {
+        // clang-format off
         1,
+        // clang-format on
     };
     uint64_t actual[MAX_ARRAY_SIZE];
     const size_t size = rows(actual, 1);
@@ -34,8 +36,10 @@ void test_single_row(void) {
 void test_two_rows(void) {
     TEST_IGNORE();
     uint64_t expected[] = {
+        // clang-format off
         1,
         1, 1,
+        // clang-format on
     };
     uint64_t actual[MAX_ARRAY_SIZE];
     const size_t size = rows(actual, 2);
@@ -46,9 +50,11 @@ void test_two_rows(void) {
 void test_three_rows(void) {
     TEST_IGNORE();
     uint64_t expected[] = {
+        // clang-format off
         1,
         1, 1,
         1, 2, 1,
+        // clang-format on
     };
     uint64_t actual[MAX_ARRAY_SIZE];
     const size_t size = rows(actual, 3);
@@ -59,10 +65,12 @@ void test_three_rows(void) {
 void test_four_rows(void) {
     TEST_IGNORE();
     uint64_t expected[] = {
+        // clang-format off
         1,
         1, 1,
         1, 2, 1,
         1, 3, 3, 1,
+        // clang-format on
     };
     uint64_t actual[MAX_ARRAY_SIZE];
     const size_t size = rows(actual, 4);
@@ -73,11 +81,13 @@ void test_four_rows(void) {
 void test_five_rows(void) {
     TEST_IGNORE();
     uint64_t expected[] = {
+        // clang-format off
         1,
         1, 1,
         1, 2, 1,
         1, 3, 3, 1,
         1, 4, 6, 4, 1,
+        // clang-format on
     };
     uint64_t actual[MAX_ARRAY_SIZE];
     const size_t size = rows(actual, 5);
@@ -88,12 +98,14 @@ void test_five_rows(void) {
 void test_six_rows(void) {
     TEST_IGNORE();
     uint64_t expected[] = {
+        // clang-format off
         1,
         1, 1,
         1, 2, 1,
         1, 3, 3, 1,
         1, 4, 6, 4, 1,
         1, 5, 10, 10, 5, 1,
+        // clang-format on
     };
     uint64_t actual[MAX_ARRAY_SIZE];
     const size_t size = rows(actual, 6);
@@ -104,6 +116,7 @@ void test_six_rows(void) {
 void test_ten_rows(void) {
     TEST_IGNORE();
     uint64_t expected[] = {
+        // clang-format off
         1,
         1, 1,
         1, 2, 1,
@@ -114,6 +127,7 @@ void test_ten_rows(void) {
         1, 7, 21, 35, 35, 21, 7, 1,
         1, 8, 28, 56, 70, 56, 28, 8, 1,
         1, 9, 36, 84, 126, 126, 84, 36, 9, 1,
+        // clang-format on
     };
     uint64_t actual[MAX_ARRAY_SIZE];
     const size_t size = rows(actual, 10);
@@ -124,6 +138,7 @@ void test_ten_rows(void) {
 void test_thirty_seven_rows(void) {
     TEST_IGNORE();
     uint64_t expected[] = {
+        // clang-format off
         1,
         1, 1,
         1, 2, 1,
@@ -161,6 +176,7 @@ void test_thirty_seven_rows(void) {
         1, 34, 561, 5984, 46376, 278256, 1344904, 5379616, 18156204, 52451256, 131128140, 286097760, 548354040, 927983760, 1391975640, 1855967520, 2203961430, 2333606220, 2203961430, 1855967520, 1391975640, 927983760, 548354040, 286097760, 131128140, 52451256, 18156204, 5379616, 1344904, 278256, 46376, 5984, 561, 34, 1,
         1, 35, 595, 6545, 52360, 324632, 1623160, 6724520, 23535820, 70607460, 183579396, 417225900, 834451800, 1476337800, 2319959400, 3247943160, 4059928950, 4537567650, 4537567650, 4059928950, 3247943160, 2319959400, 1476337800, 834451800, 417225900, 183579396, 70607460, 23535820, 6724520, 1623160, 324632, 52360, 6545, 595, 35, 1,
         1, 36, 630, 7140, 58905, 376992, 1947792, 8347680, 30260340, 94143280, 254186856, 600805296, 1251677700, 2310789600, 3796297200, 5567902560, 7307872110, 8597496600, 9075135300, 8597496600, 7307872110, 5567902560, 3796297200, 2310789600, 1251677700, 600805296, 254186856, 94143280, 30260340, 8347680, 1947792, 376992, 58905, 7140, 630, 36, 1,
+        // clang-format on
     };
     uint64_t actual[MAX_ARRAY_SIZE];
     const size_t size = rows(actual, 37);

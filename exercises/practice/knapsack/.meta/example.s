@@ -33,7 +33,7 @@ maximum_value:
         add     w12, w12, w10           /* table value plus item value */
         ldr     w13, [sp, x7]
         cmp     w13, w12
-        bhs     .skip                   /* unsigned >= */  
+        bhs     .skip                   /* unsigned >= */
 
         str     w12, [sp, x7]           /* update table value */
 

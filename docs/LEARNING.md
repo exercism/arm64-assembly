@@ -1,6 +1,6 @@
 # Learning
 
-ARM64 assembly is a simple assembly language. 
+ARM64 assembly is a simple assembly language.
 You might be able to start off with [a reference card][reference-card].
 
 ARM also provides [digital reference][official-reference] on the ARM64 (AArch64/ARMv8) architecture.

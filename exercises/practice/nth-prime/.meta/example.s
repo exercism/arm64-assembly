@@ -48,7 +48,7 @@ prime:
 
 .exit:
         mov     x0, x4
-        add     sp, sp, x1              /* restore original stack pointer */ 
+        add     sp, sp, x1              /* restore original stack pointer */
         ret
 
 .small:

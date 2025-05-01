@@ -7,7 +7,7 @@
 #define BAD_BASE -1
 #define BAD_DIGIT -2
 
-extern int rebase(int32_t in_base, const int32_t* in_digits, int in_digit_count, int32_t out_base, int32_t* out_digits);
+extern int rebase(int32_t in_base, const int32_t *in_digits, int in_digit_count, int32_t out_base, int32_t *out_digits);
 
 void setUp(void) {
 }

@@ -10,4 +10,4 @@ main:
     bl printf
     ldp x29, x30, [sp]
     mov x0, #0
-    ret                     
+    ret

@@ -6,7 +6,7 @@
 #define MAX_ARRAY_SIZE 120
 #define ARRAY_SIZE(x) (sizeof(x) / sizeof((x)[0]))
 
-extern size_t triplets_with_sum(uint64_t n, uint64_t* a, uint64_t* b, uint64_t* c);
+extern size_t triplets_with_sum(uint64_t n, uint64_t *a, uint64_t *b, uint64_t *c);
 
 void setUp(void) {
 }

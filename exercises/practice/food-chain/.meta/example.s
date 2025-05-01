@@ -73,7 +73,7 @@ recite:
         LOAD    x7, she
         LOAD    x8, to
         LOAD    x9, that
-        LOAD    x10, animal_array                    
+        LOAD    x10, animal_array
         LOAD    x11, animal2_array
 
         lsl     x1, x1, #3
@@ -120,7 +120,7 @@ recite:
         mov     x14, x9
         APPEND  that
 
-.stop:  
+.stop:
         mov     x14, x4
         APPEND  stop2
 

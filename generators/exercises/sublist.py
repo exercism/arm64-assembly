@@ -7,13 +7,13 @@ FUNC_PROTO = """\
 #define ARRAY_SIZE(x) (sizeof(x) / sizeof((x)[0]))
 
 typedef enum {
-    UNEQUAL,
+    UNEQUAL = 0,
     EQUAL,
     SUBLIST,
     SUPERLIST,
 } relation_t;
 
-extern relation_t sublist(const int64_t* list_one, size_t list_one_count, const int64_t* list_two, size_t list_two_count);
+extern relation_t sublist(const int64_t *list_one, size_t list_one_count, const int64_t *list_two, size_t list_two_count);
 """
 
 def gen_func_body(prop, inp, expected):

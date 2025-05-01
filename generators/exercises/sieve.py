@@ -7,7 +7,7 @@ FUNC_PROTO = """\
 #define MAX_ARRAY_SIZE 200
 #define ARRAY_SIZE(x) (sizeof(x) / sizeof((x)[0]))
 
-extern size_t sieve(uint64_t* primes, uint64_t limit);
+extern size_t sieve(uint64_t *primes, uint64_t limit);
 """
 
 def array_literal(numbers):

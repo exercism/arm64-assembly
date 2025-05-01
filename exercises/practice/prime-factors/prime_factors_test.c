@@ -6,7 +6,7 @@
 #define MAX_ARRAY_SIZE 100
 #define ARRAY_SIZE(x) (sizeof(x) / sizeof((x)[0]))
 
-extern size_t factors(uint64_t* dest, uint64_t value);
+extern size_t factors(uint64_t *dest, uint64_t value);
 
 void setUp(void) {
 }

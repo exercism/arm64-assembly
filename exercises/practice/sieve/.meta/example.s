@@ -40,5 +40,5 @@ sieve:
 .exit:
         sub     x0, x3, x0
         lsr     x0, x0, #3              /* number of primes */
-        add     sp, sp, x2              /* restore original stack pointer */ 
+        add     sp, sp, x2              /* restore original stack pointer */
         ret

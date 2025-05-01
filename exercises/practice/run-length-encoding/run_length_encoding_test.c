@@ -120,7 +120,8 @@ void test_encode_long_run(void) {
     TEST_IGNORE();
     char buffer[BUFFER_SIZE];
 
-    encode(buffer, "zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz");
+    encode(buffer,
+           "zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz");
     TEST_ASSERT_EQUAL_STRING("123z", buffer);
 }
 
@@ -129,7 +130,9 @@ void test_decode_long_run(void) {
     char buffer[BUFFER_SIZE];
 
     decode(buffer, "123z");
-    TEST_ASSERT_EQUAL_STRING("zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz", buffer);
+    TEST_ASSERT_EQUAL_STRING(
+        "zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz",
+        buffer);
 }
 
 int main(void) {

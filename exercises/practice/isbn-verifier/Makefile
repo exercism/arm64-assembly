@@ -1,7 +1,11 @@
+ifeq ($(origin AS),default)
 AS = aarch64-linux-gnu-as
+endif
+ifeq ($(origin CC),default)
 CC = aarch64-linux-gnu-gcc
+endif
 
-CFLAGS = -g -Wall -Wextra -pedantic -Werror
+CFLAGS ?= -g -Wall -Wextra -pedantic -Werror
 LDFLAGS =
 
 ALL_LDFLAGS = -pie -Wl,--fatal-warnings

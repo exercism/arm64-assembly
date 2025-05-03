@@ -1,0 +1,45 @@
+.text
+.equ EGGS, 0
+.equ PEANUTS, 1
+.equ SHELLFISH, 2
+.equ STRAWBERRIES, 3
+.equ TOMATOES, 4
+.equ CHOCOLATE, 5
+.equ POLLEN, 6
+.equ CATS, 7
+.equ MAX_ITEMS, 8
+
+.globl allergic_to
+.globl list
+
+/* extern int allergic_to(item_t item, unsigned int score); */
+allergic_to:
+        mov     w9, #1
+        lsl     w0, w9, w0
+        and     w0, w0, w1
+        ret
+
+/* extern void list(unsigned int score, struct item_list *list);  */
+list:
+        mov     x29, x30            /* save return address so we can use bl below */
+        mov     w3, w0              /* score */
+        mov     x4, x1              /* pointer to list->size */
+        mov     x5, x1
+        add     x5, x5, #4          /* pointer to list->items */
+        mov     w2, #0              /* current item */
+        mov     w7, #0              /* item count */
+.loop:
+        mov     w0, w2              /* item */
+        mov     w1, w3              /* score */
+        bl      allergic_to
+        cbz     w0, .next           /* skip if not allergic */
+        str     w2, [x5]            /* store item */
+        add     x5, x5, #4          /* advance pointer to next free slot in item list */
+        add     w7, w7, #1          /* increase counter */
+.next:
+        add     w2, w2, #1          /* next item */
+        cmp     w2, #MAX_ITEMS
+        bne     .loop
+        str     w7, [x4]            /* update list->size */
+        mov     x30, x29            /* restore return address */
+        ret

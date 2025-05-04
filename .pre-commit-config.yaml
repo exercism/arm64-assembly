@@ -17,3 +17,10 @@ repos:
     hooks:
     -   id: clang-format
         exclude_types: [json]
+-   repo: local
+    hooks:
+      - id: update-from-templates
+        name: Check that all exercises use up-to-date copies from templates dir
+        language: system
+        entry: bin/update-from-templates
+        pass_filenames: false

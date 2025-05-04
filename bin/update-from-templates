@@ -6,7 +6,7 @@
 
 set -eo pipefail
 
-die() { echo "$*" >&2; exit 1; }
+die() { echo "$*" >&2; exit 3; }
 
 hash_dir() {
     (cd $1 && find . ! -name "*.o" -type f | sort --unique | xargs cat) | md5sum
@@ -38,6 +38,6 @@ for slug in $(ls exercises/practice); do
     fi
 done
 
-[[ ${num_updated} -eq 0 ]] || exit 2
+[[ ${num_updated} -eq 0 ]] || exit 1
 
 echo "Everything up-to-date."

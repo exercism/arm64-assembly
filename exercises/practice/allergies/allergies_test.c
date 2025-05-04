@@ -232,6 +232,7 @@ void test_no_allergies(void) {
     item_list_t item_list = {0};
 
     list(0, &item_list);
+
     TEST_ASSERT_EQUAL_INT(0, item_list.size);
 }
 
@@ -241,6 +242,7 @@ void test_just_eggs(void) {
     item_list_t item_list = {0};
 
     list(1, &item_list);
+
     TEST_ASSERT_EQUAL_INT(ARRAY_SIZE(expected), item_list.size);
     TEST_ASSERT_EQUAL_INT_ARRAY(expected, item_list.items, item_list.size);
 }
@@ -251,6 +253,7 @@ void test_just_peanuts(void) {
     item_list_t item_list = {0};
 
     list(2, &item_list);
+
     TEST_ASSERT_EQUAL_INT(ARRAY_SIZE(expected), item_list.size);
     TEST_ASSERT_EQUAL_INT_ARRAY(expected, item_list.items, item_list.size);
 }
@@ -261,6 +264,7 @@ void test_just_strawberries(void) {
     item_list_t item_list = {0};
 
     list(8, &item_list);
+
     TEST_ASSERT_EQUAL_INT(ARRAY_SIZE(expected), item_list.size);
     TEST_ASSERT_EQUAL_INT_ARRAY(expected, item_list.items, item_list.size);
 }
@@ -271,6 +275,7 @@ void test_eggs_and_peanuts(void) {
     item_list_t item_list = {0};
 
     list(3, &item_list);
+
     TEST_ASSERT_EQUAL_INT(ARRAY_SIZE(expected), item_list.size);
     TEST_ASSERT_EQUAL_INT_ARRAY(expected, item_list.items, item_list.size);
 }
@@ -281,6 +286,7 @@ void test_more_than_eggs_but_not_peanuts(void) {
     item_list_t item_list = {0};
 
     list(5, &item_list);
+
     TEST_ASSERT_EQUAL_INT(ARRAY_SIZE(expected), item_list.size);
     TEST_ASSERT_EQUAL_INT_ARRAY(expected, item_list.items, item_list.size);
 }
@@ -291,6 +297,7 @@ void test_lots_of_stuff(void) {
     item_list_t item_list = {0};
 
     list(248, &item_list);
+
     TEST_ASSERT_EQUAL_INT(ARRAY_SIZE(expected), item_list.size);
     TEST_ASSERT_EQUAL_INT_ARRAY(expected, item_list.items, item_list.size);
 }
@@ -301,6 +308,7 @@ void test_everything(void) {
     item_list_t item_list = {0};
 
     list(255, &item_list);
+
     TEST_ASSERT_EQUAL_INT(ARRAY_SIZE(expected), item_list.size);
     TEST_ASSERT_EQUAL_INT_ARRAY(expected, item_list.items, item_list.size);
 }
@@ -311,6 +319,7 @@ void test_no_allergen_score_parts(void) {
     item_list_t item_list = {0};
 
     list(509, &item_list);
+
     TEST_ASSERT_EQUAL_INT(ARRAY_SIZE(expected), item_list.size);
     TEST_ASSERT_EQUAL_INT_ARRAY(expected, item_list.items, item_list.size);
 }
@@ -321,6 +330,7 @@ void test_no_allergen_score_parts_without_highest_valid_score(void) {
     item_list_t item_list = {0};
 
     list(257, &item_list);
+
     TEST_ASSERT_EQUAL_INT(ARRAY_SIZE(expected), item_list.size);
     TEST_ASSERT_EQUAL_INT_ARRAY(expected, item_list.items, item_list.size);
 }

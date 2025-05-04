@@ -16,16 +16,16 @@
 allergic_to:
         mov     w9, #1
         lsl     w0, w9, w0
-        and     w0, w0, w1
+        tst     w0, w1
+        cset    w0, ne
         ret
 
-/* extern void list(unsigned int score, struct item_list *list);  */
+/* extern void list(unsigned int score, item_list_t *list);  */
 list:
-        mov     x29, x30            /* save return address so we can use bl below */
+        mov     x15, lr             /* save return address so we can use bl below */
         mov     w3, w0              /* score */
         mov     x4, x1              /* pointer to list->size */
-        mov     x5, x1
-        add     x5, x5, #4          /* pointer to list->items */
+        add     x5, x1, #4          /* pointer to list->items */
         mov     w2, #0              /* current item */
         mov     w7, #0              /* item count */
 .loop:
@@ -33,13 +33,11 @@ list:
         mov     w1, w3              /* score */
         bl      allergic_to
         cbz     w0, .next           /* skip if not allergic */
-        str     w2, [x5]            /* store item */
-        add     x5, x5, #4          /* advance pointer to next free slot in item list */
+        str     w2, [x5], #4        /* store item and advance pointer */
         add     w7, w7, #1          /* increase counter */
 .next:
         add     w2, w2, #1          /* next item */
         cmp     w2, #MAX_ITEMS
         bne     .loop
         str     w7, [x4]            /* update list->size */
-        mov     x30, x29            /* restore return address */
-        ret
+        ret     x15

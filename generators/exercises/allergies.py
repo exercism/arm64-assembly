@@ -24,25 +24,25 @@ extern int allergic_to(item_t item, unsigned int score);
 extern void list(unsigned int score, item_list_t *list);
 """
 
+TEST_BOOL_MACRO = {
+    True: "TEST_ASSERT_TRUE",
+    False: "TEST_ASSERT_FALSE"
+}
+
 def gen_func_body(prop, inp, expected):
     str_list = []
     score = inp["score"]
     match prop:
         case "allergic_to":
+            assert isinstance(expected, bool)
             item = inp["item"].upper()
-            if expected:
-                str_list.append(f"TEST_ASSERT_TRUE({prop}({item}, {score}));\n")
-            else:
-                str_list.append(f"TEST_ASSERT_FALSE({prop}({item}, {score}));\n")
+            str_list.append(f"{TEST_BOOL_MACRO[expected]}({prop}({item}, {score}));\n")
         case "list":
-            item_list = list(map(lambda item: str(item).upper(), expected))
-            item_list = str(item_list).replace("'", "")
-            item_list = item_list.replace("[", "{")
-            item_list = item_list.replace("]", "}")
+            assert isinstance(expected, list)
             if expected:
-                str_list.append(f"const int expected[] = {item_list};\n")
+                str_list.append(f"const int expected[] = {{{', '.join(item.upper() for item in expected)}}};\n")
             str_list.append("item_list_t item_list = {0};\n\n")
-            str_list.append(f"{prop}({score}, &item_list);\n")
+            str_list.append(f"{prop}({score}, &item_list);\n\n")
             if expected:
                 str_list.append("TEST_ASSERT_EQUAL_INT(ARRAY_SIZE(expected), item_list.size);\n")
                 str_list.append("TEST_ASSERT_EQUAL_INT_ARRAY(expected, item_list.items, item_list.size);\n")

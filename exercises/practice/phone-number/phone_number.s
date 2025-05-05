@@ -2,4 +2,4 @@
 .globl clean
 
 clean:
-    ret
+        ret

@@ -3,7 +3,7 @@
 .globl can_attack
 
 can_create:
-    ret
+        ret
 
 can_attack:
-    ret
+        ret

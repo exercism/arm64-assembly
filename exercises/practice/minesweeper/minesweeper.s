@@ -2,4 +2,4 @@
 .globl annotate
 
 annotate:
-    ret
+        ret

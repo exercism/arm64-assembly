@@ -2,4 +2,4 @@
 .globl rotate
 
 rotate:
-    ret
+        ret

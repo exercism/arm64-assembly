@@ -11,4 +11,4 @@
 .globl age
 
 age:
-    ret
+        ret

@@ -4,10 +4,10 @@
 .globl scalene
 
 equilateral:
-    ret
+        ret
 
 isosceles:
-    ret
+        ret
 
 scalene:
-    ret
+        ret

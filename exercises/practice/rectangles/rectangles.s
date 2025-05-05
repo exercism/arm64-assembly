@@ -2,4 +2,4 @@
 .globl rectangles
 
 rectangles:
-    ret
+        ret

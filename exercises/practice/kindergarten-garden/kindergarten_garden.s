@@ -2,4 +2,4 @@
 .globl plants
 
 plants:
-    ret
+        ret

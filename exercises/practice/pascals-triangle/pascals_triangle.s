@@ -2,4 +2,4 @@
 .globl rows
 
 rows:
-    ret
+        ret

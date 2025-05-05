@@ -2,4 +2,4 @@
 .globl abbreviate
 
 abbreviate:
-    ret
+        ret

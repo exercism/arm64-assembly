@@ -2,4 +2,4 @@
 .globl truncate
 
 truncate:
-    ret
+        ret

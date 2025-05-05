@@ -5,4 +5,4 @@
 .globl rebase
 
 rebase:
-    ret
+        ret

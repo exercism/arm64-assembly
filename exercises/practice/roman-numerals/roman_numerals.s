@@ -2,4 +2,4 @@
 .globl roman
 
 roman:
-    ret
+        ret

@@ -7,4 +7,4 @@
 .globl classify
 
 classify:
-    ret
+        ret

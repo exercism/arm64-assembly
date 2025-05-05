@@ -2,4 +2,4 @@
 .globl sieve
 
 sieve:
-    ret
+        ret

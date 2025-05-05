@@ -2,4 +2,4 @@
 .globl translate
 
 translate:
-    ret
+        ret

@@ -2,4 +2,4 @@
 .globl convert
 
 convert:
-    ret
+        ret

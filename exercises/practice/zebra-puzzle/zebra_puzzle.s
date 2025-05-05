@@ -3,7 +3,7 @@
 .globl owns_zebra
 
 drinks_water:
-    ret
+        ret
 
 owns_zebra:
-    ret
+        ret

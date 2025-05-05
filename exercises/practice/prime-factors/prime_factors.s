@@ -2,4 +2,4 @@
 .globl factors
 
 factors:
-    ret
+        ret

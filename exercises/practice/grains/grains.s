@@ -3,7 +3,7 @@
 .globl total
 
 square:
-    ret
+        ret
 
 total:
-    ret
+        ret

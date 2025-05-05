@@ -3,7 +3,7 @@
 .globl colors
 
 color_code:
-    ret
+        ret
 
 colors:
-    ret
+        ret

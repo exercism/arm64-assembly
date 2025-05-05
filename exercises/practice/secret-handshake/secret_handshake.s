@@ -2,4 +2,4 @@
 .globl commands
 
 commands:
-    ret
+        ret

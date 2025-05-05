@@ -13,7 +13,7 @@
 .globl list
 
 allergic_to:
-    ret
+        ret
 
 list:
-    ret
+        ret

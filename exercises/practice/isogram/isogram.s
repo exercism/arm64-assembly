@@ -2,4 +2,4 @@
 .globl is_isogram
 
 is_isogram:
-    ret
+        ret

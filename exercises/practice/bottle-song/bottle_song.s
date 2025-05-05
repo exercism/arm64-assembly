@@ -2,4 +2,4 @@
 .globl recite
 
 recite:
-    ret
+        ret

@@ -2,4 +2,4 @@
 .globl response
 
 response:
-    ret
+        ret

@@ -6,4 +6,4 @@
 .globl largest_product
 
 largest_product:
-    ret
+        ret

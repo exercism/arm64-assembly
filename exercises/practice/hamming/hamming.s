@@ -4,4 +4,4 @@
 .globl distance
 
 distance:
-    ret
+        ret

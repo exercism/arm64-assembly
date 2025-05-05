@@ -2,4 +2,4 @@
 .globl total
 
 total:
-    ret
+        ret

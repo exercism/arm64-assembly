@@ -2,4 +2,4 @@
 .globl reverse
 
 reverse:
-    ret
+        ret

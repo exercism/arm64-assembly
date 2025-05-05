@@ -4,10 +4,10 @@
 .globl difference_of_squares
 
 square_of_sum:
-    ret
+        ret
 
 sum_of_squares:
-    ret
+        ret
 
 difference_of_squares:
-    ret
+        ret

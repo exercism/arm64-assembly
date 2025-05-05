@@ -2,4 +2,4 @@
 .globl value
 
 value:
-    ret
+        ret

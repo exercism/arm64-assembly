@@ -4,4 +4,4 @@
 .globl steps
 
 steps:
-    ret
+        ret

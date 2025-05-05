@@ -2,4 +2,4 @@
 .globl valid
 
 valid:
-    ret
+        ret

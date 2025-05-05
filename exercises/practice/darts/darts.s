@@ -2,4 +2,4 @@
 .globl score
 
 score:
-    ret
+        ret

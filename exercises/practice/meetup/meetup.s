@@ -17,4 +17,4 @@
 .globl meetup
 
 meetup:
-    ret
+        ret

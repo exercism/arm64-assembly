@@ -7,4 +7,4 @@
 .globl gamestate
 
 gamestate:
-    ret
+        ret

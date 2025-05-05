@@ -2,4 +2,4 @@
 .globl prime
 
 prime:
-    ret
+        ret

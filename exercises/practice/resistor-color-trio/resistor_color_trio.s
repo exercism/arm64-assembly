@@ -2,4 +2,4 @@
 .globl label
 
 label:
-    ret
+        ret

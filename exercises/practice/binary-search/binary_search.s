@@ -2,4 +2,4 @@
 .globl find
 
 find:
-    ret
+        ret

@@ -238,6 +238,14 @@
         "difficulty": 4
       },
       {
+        "slug": "allergies",
+        "name": "Allergies",
+        "uuid": "2082f2a0-7a1d-48fc-a923-a12a3706100d",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 4
+      },
+      {
         "slug": "atbash-cipher",
         "name": "Atbash Cipher",
         "uuid": "309d7449-4f2e-40cb-b38b-faedcf2b88bb",

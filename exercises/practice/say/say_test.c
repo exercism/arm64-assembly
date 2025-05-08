@@ -127,7 +127,9 @@ void test_a_big_number(void) {
     TEST_IGNORE();
     char buffer[BUFFER_SIZE];
     say(buffer, 987654321123);
-    TEST_ASSERT_EQUAL_STRING("nine hundred eighty-seven billion six hundred fifty-four million three hundred twenty-one thousand one hundred twenty-three", buffer);
+    TEST_ASSERT_EQUAL_STRING(
+        "nine hundred eighty-seven billion six hundred fifty-four million three hundred twenty-one thousand one hundred twenty-three",
+        buffer);
 }
 
 void test_numbers_below_zero_are_out_of_range(void) {

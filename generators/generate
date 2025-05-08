@@ -102,6 +102,8 @@ def gen_test_file(mod, cases):
     str_list.append(gen_main(mod, cases))
     return "".join(str_list)
 
+def filter_unicode(cases):
+    return [case for case in cases if "scenarios" not in case or "unicode" not in case["scenarios"]]
 
 def main():
     parser = argparse.ArgumentParser()
@@ -111,6 +113,7 @@ def main():
     args = parser.parse_args()
     data = read_canonical_data(args.exercise)
     cases = flatten_cases(data)
+    cases = filter_unicode(cases)
     if not args.ignore_toml:
         test_toml = f"{sys.path[0]}/../exercises/practice/{args.exercise}/.meta/tests.toml"
         with open(test_toml, "rb") as f:

@@ -43,5 +43,10 @@ def gen_func_body(prop, inp, expected):
     str_list = []
     str_list.append(f'char buffer[BUFFER_SIZE];\n')
     str_list.append(f'{prop}(buffer, {number});\n')
-    str_list.append(f'TEST_ASSERT_EQUAL_STRING("{expected}", buffer);\n')
+    if len(expected) <= 120:
+        str_list.append(f'TEST_ASSERT_EQUAL_STRING("{expected}", buffer);\n')
+    else:
+        str_list.append(f'TEST_ASSERT_EQUAL_STRING(\n')
+        str_list.append(f'    "{expected}",\n')
+        str_list.append(f'    buffer);\n')
     return "".join(str_list)

@@ -8,10 +8,10 @@ extern void proteins(char *buffer, const char *strand);
 
 def gen_func_body(prop, inp, expected):
     strand = inp["strand"]
-    if expected.__class__ == dict:
+    if isinstance(expected, dict):
         expected = ''
     else:
-        expected = ''.join(map(lambda amino_acid: amino_acid + '\\n', expected))
+        expected = ''.join(amino_acid + '\\n' for amino_acid in expected)
     str_list = []
     str_list.append(f'char buffer[BUFFER_SIZE];\n\n')
     str_list.append(f'{prop}(buffer, "{strand}");\n')

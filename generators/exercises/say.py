@@ -38,7 +38,7 @@ def extra_cases():
 
 def gen_func_body(prop, inp, expected):
     number = inp["number"]
-    if expected.__class__ == dict:
+    if isinstance(expected, dict):
         expected = ""
     str_list = []
     str_list.append(f'char buffer[BUFFER_SIZE];\n')

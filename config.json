@@ -518,6 +518,14 @@
         "difficulty": 6
       },
       {
+        "slug": "yacht",
+        "name": "Yacht",
+        "uuid": "bb38f651-23aa-4b6e-bab5-1e40f091ca1e",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 6
+      },
+      {
         "slug": "minesweeper",
         "name": "Minesweeper",
         "uuid": "d5008701-7328-4115-a85b-93c950a96a29",

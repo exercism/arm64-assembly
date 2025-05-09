@@ -10,6 +10,7 @@ extern bool shared_birthday(const char **birthdates);
 extern double estimate(int group_size);
 """
 
+
 def gen_func_body(prop, inp, expected):
     if prop == "shared_birthday":
         str_list = []
@@ -17,7 +18,7 @@ def gen_func_body(prop, inp, expected):
             macro = "TEST_ASSERT_TRUE"
         else:
             macro = "TEST_ASSERT_FALSE"
-        birthdates = str(inp["birthdates"]).replace('[', '{').replace(']', ', NULL}').replace("'", '"')
+        birthdates = '{"' + '", "'.join(inp["birthdates"]) + '", NULL}'
         str_list.append(f"const char *birthdates[] = {birthdates};")
         str_list.append(f"{macro}({prop}(birthdates));\n")
         return "\n".join(str_list)

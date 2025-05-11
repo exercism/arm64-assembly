@@ -19,8 +19,12 @@ repos:
         exclude_types: [json]
 -   repo: local
     hooks:
-      - id: update-from-templates
+    -   id: update-from-templates
         name: Check that all exercises use up-to-date copies from templates dir
         language: system
         entry: bin/update-from-templates
         pass_filenames: false
+-   repo: https://github.com/shellcheck-py/shellcheck-py
+    rev: v0.10.0.1
+    hooks:
+    -   id: shellcheck

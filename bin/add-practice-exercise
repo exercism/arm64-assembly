@@ -29,7 +29,7 @@ if [[ -z $author ]]; then
     read -rp "What's your github username? " author
 fi
 
-read -p "What's the difficulty for ${slug}? " difficulty
+read -rp "What's the difficulty for ${slug}? " difficulty
 
 bin/fetch-configlet
 bin/configlet create --practice-exercise "${slug}" --author "${author}" --difficulty "${difficulty}"
@@ -37,7 +37,7 @@ bin/configlet create --practice-exercise "${slug}" --author "${author}" --diffic
 filter='.exercises.practice = (.exercises.practice | sort_by(.difficulty, .slug))'
 jq "${filter}" config.json > config.sorted && mv config.sorted config.json
 
-cp templates/Makefile exercises/practice/${slug}/Makefile
-cp -r templates/vendor exercises/practice/${slug}/vendor
+cp templates/Makefile "exercises/practice/${slug}/Makefile"
+cp -r templates/vendor "exercises/practice/${slug}/vendor"
 
-touch generators/exercises/${snake}.py
+touch "generators/exercises/${snake}.py"

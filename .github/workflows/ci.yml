@@ -21,6 +21,9 @@ jobs:
     steps:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
 
+      - name: Dump bin/
+        run: cat bin/add-practice-exercise
+
       - name: Install cross compiler and QEMU if not running on ARM64
         if: ${{ runner.arch != 'ARM64' }}
         run: |

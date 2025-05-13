@@ -7,7 +7,7 @@
 .globl reverse
 
 
-/* extern size_t append(int64_t* buffer, const int64_t* list1, size_t list1_count, const int64_t* list2, size_t list2_count); */
+/* extern size_t append(int64_t *buffer, const int64_t *list1, size_t list1_count, const int64_t *list2, size_t list2_count); */
 append:
         mov     x9, x0
         cbz     x2, .append_check_list2_count
@@ -39,7 +39,7 @@ append:
         ret
 
 
-/* extern size_t filter(int64_t* buffer, const int64_t* list, size_t list_count, bool (*function)(int64_t)); */
+/* extern size_t filter(int64_t *buffer, const int64_t *list, size_t list_count, bool (*function)(int64_t)); */
 filter:
         stp     x19, x20, [sp, #-64]!
         stp     x21, x22, [sp, #16]
@@ -77,7 +77,7 @@ filter:
         ret
 
 
-/* extern size_t map(int64_t* buffer, const int64_t* list, size_t list_count, int64_t (*function)(int64_t)); */
+/* extern size_t map(int64_t *buffer, const int64_t *list, size_t list_count, int64_t (*function)(int64_t)); */
 map:
         stp     x19, x20, [sp, #-64]!
         stp     x21, x22, [sp, #16]
@@ -112,7 +112,7 @@ map:
         ret
 
 
-/* extern int64_t foldl(const int64_t* list, size_t list_count, int64_t initial, int64_t (*function)(int64_t, int64_t)); */
+/* extern int64_t foldl(const int64_t *list, size_t list_count, int64_t initial, int64_t (*function)(int64_t, int64_t)); */
 foldl:
         stp     x19, x20, [sp, #-32]!
         stp     x21, x22, [sp, #16]
@@ -138,7 +138,7 @@ foldl:
         ret
 
 
-/* extern int64_t foldr(const int64_t* list, size_t list_count, int64_t initial, int64_t (*function)(int64_t, int64_t)); */
+/* extern int64_t foldr(const int64_t *list, size_t list_count, int64_t initial, int64_t (*function)(int64_t, int64_t)); */
 foldr:
         stp     x19, x20, [sp, #-32]!
         stp     x21, x22, [sp, #16]
@@ -164,12 +164,13 @@ foldr:
         ret
 
 
-/* extern size_t reverse(int64_t* buffer, const int64_t* list, size_t list_count); */
+/* extern size_t reverse(int64_t *buffer, const int64_t *list, size_t list_count); */
 reverse:
         mov     x15, x2
+        cbz     x2, .reverse_return
+
         lsl     x9, x2, #3
         add     x9, x1, x9              /* end of list */
-        cbz     x2, .reverse_return
 
 .reverse_loop:
         ldr     x10, [x9, #-8]!

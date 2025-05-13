@@ -37,8 +37,8 @@ static int64_t divide(int64_t acc, int64_t el) {
 }
 """
 
-def array_literal(digits):
-    return '{' + ', '.join(str(d) for d in digits) + '}'
+def array_literal(numbers):
+    return '{' + ', '.join(str(d) for d in numbers) + '}'
 
 def describe(case):
     description = case["description"]
@@ -95,20 +95,18 @@ def gen_func_body(prop, inp, expected):
         else:
             list_with_count = 'NULL, 0'
 
-    if prop == 'append':
-        str_list.append('int64_t buffer[BUFFER_SIZE];\n')
-        call = f'{prop}(buffer, {list1_with_count}, {list2_with_count})'
-
-    if prop in ['filter', 'map']:
-        str_list.append('int64_t buffer[BUFFER_SIZE];\n')
-        call = f'{prop}(buffer, {list_with_count}, {function})'
-
-    if prop in ['foldl', 'foldr']:
-        call = f'{prop}({list_with_count}, {initial}, {function})'
-
-    if prop == 'reverse':
-        str_list.append('int64_t buffer[BUFFER_SIZE];\n')
-        call = f'{prop}(buffer, {list_with_count})'
+    match prop:
+        case 'append':
+            str_list.append('int64_t buffer[BUFFER_SIZE];\n')
+            call = f'{prop}(buffer, {list1_with_count}, {list2_with_count})'
+        case 'filter' | 'map':
+            str_list.append('int64_t buffer[BUFFER_SIZE];\n')
+            call = f'{prop}(buffer, {list_with_count}, {function})'
+        case 'foldl' | 'foldr':
+            call = f'{prop}({list_with_count}, {initial}, {function})'
+        case 'reverse':
+            str_list.append('int64_t buffer[BUFFER_SIZE];\n')
+            call = f'{prop}(buffer, {list_with_count})'
 
     if isinstance(expected, list):
         if len(expected) == 0:

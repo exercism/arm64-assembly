@@ -14,8 +14,10 @@ typedef struct {
 extern int can_chain(size_t domino_count, const domino_t *dominoes);
 """
 
+
 def array_literal(dominoes):
-    return str(dominoes).replace('[', '{').replace(']', '}')
+    return str(dominoes).replace("[", "{").replace("]", "}")
+
 
 def gen_func_body(prop, inp, expected):
     dominoes = inp["dominoes"]
@@ -26,8 +28,8 @@ def gen_func_body(prop, inp, expected):
 
     str_list = []
     if len(dominoes) > 0:
-        str_list.append(f'const domino_t dominoes[] = {array_literal(dominoes)};\n')
-        str_list.append(f'{macro}({prop}(ARRAY_SIZE(dominoes), dominoes));\n')
+        str_list.append(f"const domino_t dominoes[] = {array_literal(dominoes)};\n")
+        str_list.append(f"{macro}({prop}(ARRAY_SIZE(dominoes), dominoes));\n")
     else:
-        str_list.append(f'{macro}({prop}(0, NULL));\n')
+        str_list.append(f"{macro}({prop}(0, NULL));\n")
     return "".join(str_list)

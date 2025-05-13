@@ -25,6 +25,7 @@ typedef enum {
 extern void meetup(char *buffer, int year, int month, week_t week, dayofweek_t dayofweek);
 """
 
+
 def extra_cases():
     return [
         {
@@ -34,9 +35,9 @@ def extra_cases():
                 "year": 2300,
                 "month": 2,
                 "week": "last",
-                "dayofweek": "Thursday"
+                "dayofweek": "Thursday",
             },
-            "expected": "2300-02-22"
+            "expected": "2300-02-22",
         },
         {
             "description": "when fourth Monday is the 23nd, the second day of the fourth week",
@@ -45,11 +46,12 @@ def extra_cases():
                 "year": 2468,
                 "month": 1,
                 "week": "fourth",
-                "dayofweek": "Monday"
+                "dayofweek": "Monday",
             },
-            "expected": "2468-01-23"
-        }
+            "expected": "2468-01-23",
+        },
     ]
+
 
 def gen_func_body(prop, inp, expected):
     year = inp["year"]
@@ -59,6 +61,6 @@ def gen_func_body(prop, inp, expected):
 
     str_list = []
     str_list.append("char buffer[BUFFER_SIZE];\n\n")
-    str_list.append(f'{prop}(buffer, {year}, {month}, {week}, {dayofweek});\n')
+    str_list.append(f"{prop}(buffer, {year}, {month}, {week}, {dayofweek});\n")
     str_list.append(f'TEST_ASSERT_EQUAL_STRING("{expected}", buffer);\n')
     return "".join(str_list)

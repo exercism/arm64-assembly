@@ -7,6 +7,7 @@ extern void encode(char *buffer, const char *phrase, unsigned a, unsigned b);
 extern void decode(char *buffer, const char *phrase, unsigned a, unsigned b);
 """
 
+
 def extra_cases():
     return [
         {
@@ -14,23 +15,21 @@ def extra_cases():
             "property": "encode",
             "input": {
                 "phrase": "/09:@AMNZ[`amnz{",
-                "key": {
-                    "a": 25,
-                    "b": 12
-                }
+                "key": {"a": 25, "b": 12},
             },
-            "expected": "09maz nmazn"
+            "expected": "09maz nmazn",
         }
     ]
+
 
 def gen_func_body(prop, inp, expected):
     phrase = inp["phrase"]
     a = inp["key"]["a"]
     b = inp["key"]["b"]
-    if expected.__class__ == dict:
+    if isinstance(expected, dict):
         expected = ""
     str_list = []
-    str_list.append(f'char buffer[BUFFER_SIZE];\n\n')
+    str_list.append("char buffer[BUFFER_SIZE];\n\n")
     str_list.append(f'{prop}(buffer, "{phrase}", {a}, {b});\n')
     str_list.append(f'TEST_ASSERT_EQUAL_STRING("{expected}", buffer);\n')
     return "".join(str_list)

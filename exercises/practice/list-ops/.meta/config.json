@@ -1,0 +1,17 @@
+{
+  "authors": [
+    "keiravillekode"
+  ],
+  "files": {
+    "solution": [
+      "list_ops.s"
+    ],
+    "test": [
+      "list_ops_test.c"
+    ],
+    "example": [
+      ".meta/example.s"
+    ]
+  },
+  "blurb": "Implement basic list operations."
+}

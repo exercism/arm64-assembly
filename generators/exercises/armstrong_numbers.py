@@ -4,6 +4,7 @@ FUNC_PROTO = """\
 extern int is_armstrong_number(unsigned number);
 """
 
+
 def gen_func_body(prop, inp, expected):
     number = inp["number"]
     if expected:

@@ -7,7 +7,13 @@ import re
 import subprocess
 import sys
 import textwrap
-import tomllib
+
+# tomllib is available in the standard library as of Python 3.11
+# When using an older release, we use the compatible tomli
+try:
+    import tomllib
+except ModuleNotFoundError:
+    import tomli as tomllib
 
 
 def camel_to_snake(s):

@@ -37,86 +37,91 @@ static int64_t divide(int64_t acc, int64_t el) {
 }
 """
 
+
 def array_literal(numbers):
-    return '{' + ', '.join(str(d) for d in numbers) + '}'
+    return "{" + ", ".join(str(d) for d in numbers) + "}"
+
 
 def describe(case):
     description = case["description"]
     property = case["property"]
     return f"{property} {description}"
 
+
 def gen_func_body(prop, inp, expected):
     str_list = []
 
-    if prop in ['foldl', 'foldr']:
-        initial = inp['initial']
+    if prop in ["foldl", "foldr"]:
+        initial = inp["initial"]
 
     function = None
-    if prop not in ['append', 'reverse']:
-        function = inp['function']
+    if prop not in ["append", "reverse"]:
+        function = inp["function"]
         if function == "(x) -> x modulo 2 == 1":
-            function = 'is_odd'
+            function = "is_odd"
         if function == "(x) -> x + 1":
-            function = 'plus_one'
+            function = "plus_one"
 
         if function == "(acc, el) -> el * acc":
-            function = 'multiply'
+            function = "multiply"
         if function == "(acc, el) -> el + acc":
-            function = 'add'
+            function = "add"
         if function == "(acc, el) -> el / acc":
-            function = 'divide'
+            function = "divide"
 
-    if prop == 'append':
-        list1 = inp['list1']
-        list2 = inp['list2']
+    if prop == "append":
+        list1 = inp["list1"]
+        list2 = inp["list2"]
         if len(list1) > 0:
-            str_list.append(f'const int64_t list1[] = {array_literal(list1)};\n')
-            list1_with_count = 'list1, ARRAY_SIZE(list1)'
+            str_list.append(f"const int64_t list1[] = {array_literal(list1)};\n")
+            list1_with_count = "list1, ARRAY_SIZE(list1)"
         else:
-            list1_with_count = 'NULL, 0'
+            list1_with_count = "NULL, 0"
         if len(list2) > 0:
-            str_list.append(f'const int64_t list2[] = {array_literal(list2)};\n')
-            list2_with_count = 'list2, ARRAY_SIZE(list2)'
+            str_list.append(f"const int64_t list2[] = {array_literal(list2)};\n")
+            list2_with_count = "list2, ARRAY_SIZE(list2)"
         else:
-            list2_with_count = 'NULL, 0'
+            list2_with_count = "NULL, 0"
     else:
-        list_ = inp['list']
-        if function == 'divide':
+        list_ = inp["list"]
+        if function == "divide":
             initial = 5
             list_ = [2, 5]
-            if prop == 'foldl':
+            if prop == "foldl":
                 expected = 0
             else:
                 expected = 2
 
         if len(list_) > 0:
-            str_list.append(f'const int64_t list[] = {array_literal(list_)};\n')
-            list_with_count = 'list, ARRAY_SIZE(list)'
+            str_list.append(f"const int64_t list[] = {array_literal(list_)};\n")
+            list_with_count = "list, ARRAY_SIZE(list)"
         else:
-            list_with_count = 'NULL, 0'
+            list_with_count = "NULL, 0"
 
     match prop:
-        case 'append':
-            str_list.append('int64_t buffer[BUFFER_SIZE];\n')
-            call = f'{prop}(buffer, {list1_with_count}, {list2_with_count})'
-        case 'filter' | 'map':
-            str_list.append('int64_t buffer[BUFFER_SIZE];\n')
-            call = f'{prop}(buffer, {list_with_count}, {function})'
-        case 'foldl' | 'foldr':
-            call = f'{prop}({list_with_count}, {initial}, {function})'
-        case 'reverse':
-            str_list.append('int64_t buffer[BUFFER_SIZE];\n')
-            call = f'{prop}(buffer, {list_with_count})'
+        case "append":
+            str_list.append("int64_t buffer[BUFFER_SIZE];\n")
+            call = f"{prop}(buffer, {list1_with_count}, {list2_with_count})"
+        case "filter" | "map":
+            str_list.append("int64_t buffer[BUFFER_SIZE];\n")
+            call = f"{prop}(buffer, {list_with_count}, {function})"
+        case "foldl" | "foldr":
+            call = f"{prop}({list_with_count}, {initial}, {function})"
+        case "reverse":
+            str_list.append("int64_t buffer[BUFFER_SIZE];\n")
+            call = f"{prop}(buffer, {list_with_count})"
 
     if isinstance(expected, list):
         if len(expected) == 0:
-            str_list.append(f'TEST_ASSERT_EQUAL_UINT(0U, {call});\n')
+            str_list.append(f"TEST_ASSERT_EQUAL_UINT(0U, {call});\n")
         else:
             expected = array_literal(expected)
-            str_list.append(f'const int64_t expected[] = {expected};\n')
-            str_list.append(f'TEST_ASSERT_EQUAL_UINT(ARRAY_SIZE(expected), {call});\n')
-            str_list.append(f'TEST_ASSERT_EQUAL_INT64_ARRAY(expected, buffer, ARRAY_SIZE(expected));\n')
+            str_list.append(f"const int64_t expected[] = {expected};\n")
+            str_list.append(f"TEST_ASSERT_EQUAL_UINT(ARRAY_SIZE(expected), {call});\n")
+            str_list.append(
+                "TEST_ASSERT_EQUAL_INT64_ARRAY(expected, buffer, ARRAY_SIZE(expected));\n"
+            )
     else:
-        str_list.append(f'TEST_ASSERT_EQUAL_INT({expected}, {call});\n')
+        str_list.append(f"TEST_ASSERT_EQUAL_INT({expected}, {call});\n")
 
-    return ''.join(str_list)
+    return "".join(str_list)

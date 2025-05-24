@@ -11,23 +11,23 @@ FUNC_PROTO = """\
 extern int classify(int64_t number);
 """
 
+
 def extra_cases():
     return [
         {
             "description": "large negative is rejected",
             "property": "classify",
-            "input": {
-                "number": -7001002003
-            },
+            "input": {"number": -7001002003},
             "expected": {
                 "error": "Classification is only possible for positive integers."
-            }
+            },
         }
     ]
 
+
 def gen_func_body(prop, inp, expected):
     number = inp["number"]
-    if expected.__class__ == dict:
-        expected = 'INVALID'
+    if isinstance(expected, dict):
+        expected = "INVALID"
     expected = expected.upper()
     return f"TEST_ASSERT_EQUAL_INT({expected}, {prop}({number}));\n"

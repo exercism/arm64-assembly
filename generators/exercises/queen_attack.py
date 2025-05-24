@@ -8,9 +8,10 @@ extern int can_create(int row, int column);
 extern int can_attack(int white_row, int white_column, int black_row, int black_column);
 """
 
+
 def gen_func_body(prop, inp, expected):
     macro = "TEST_ASSERT_TRUE"
-    if expected is False or expected.__class__ == dict:
+    if expected is False or isinstance(expected, dict):
         macro = "TEST_ASSERT_FALSE"
 
     def describe(queen):
@@ -18,11 +19,11 @@ def gen_func_body(prop, inp, expected):
         column = queen["position"]["column"]
         return f"{row}, {column}"
 
-    if prop == 'create':
+    if prop == "create":
         queen = describe(inp["queen"])
         return f"{macro}(can_create({queen}));\n"
 
-    if prop == 'can_attack':
+    if prop == "can_attack":
         white_queen = describe(inp["white_queen"])
         black_queen = describe(inp["black_queen"])
         return f"{macro}(can_attack({white_queen}, {black_queen}));\n"

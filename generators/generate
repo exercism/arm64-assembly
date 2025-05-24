@@ -22,9 +22,11 @@ def desc_to_funcname(desc):
 
 def read_canonical_data(exercise):
     prefix = "Using cached 'problem-specifications' dir: "
-    args = ['bin/configlet', 'info', '-o', '-v', 'd']
-    info = subprocess.run(args, capture_output=True, check=True, text=True).stdout.split("\n")
-    cache_dir = [line[len(prefix):] for line in info if line.startswith(prefix)]
+    args = ["bin/configlet", "info", "-o", "-v", "d"]
+    info = subprocess.run(
+        args, capture_output=True, check=True, text=True
+    ).stdout.split("\n")
+    cache_dir = [line[len(prefix) :] for line in info if line.startswith(prefix)]
     if len(cache_dir) != 1:
         raise Exception("Could not determine 'problem-specifications' dir")
     path = f"{cache_dir[0]}/exercises/{exercise}/canonical-data.json"
@@ -102,23 +104,41 @@ def gen_test_file(mod, cases):
     str_list.append(gen_main(mod, cases))
     return "".join(str_list)
 
+
 def filter_unicode(cases):
-    return [case for case in cases if "scenarios" not in case or "unicode" not in case["scenarios"]]
+    return [
+        case
+        for case in cases
+        if "scenarios" not in case or "unicode" not in case["scenarios"]
+    ]
+
 
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("exercise")
     parser.add_argument("-i", "--ignore-toml", action="store_true")
-    parser.add_argument("-f", "--format", action=argparse.BooleanOptionalAction, default=True, help="format test file with clang-format")
+    parser.add_argument(
+        "-f",
+        "--format",
+        action=argparse.BooleanOptionalAction,
+        default=True,
+        help="format test file with clang-format",
+    )
     args = parser.parse_args()
     data = read_canonical_data(args.exercise)
     cases = flatten_cases(data)
     cases = filter_unicode(cases)
     if not args.ignore_toml:
-        test_toml = f"{sys.path[0]}/../exercises/practice/{args.exercise}/.meta/tests.toml"
+        test_toml = (
+            f"{sys.path[0]}/../exercises/practice/{args.exercise}/.meta/tests.toml"
+        )
         with open(test_toml, "rb") as f:
             test_toml = tomllib.load(f)
-        cases = list(filter(lambda case : test_toml.get(case['uuid'],{}).get('include', True), cases))
+        cases = list(
+            filter(
+                lambda case: test_toml.get(case["uuid"], {}).get("include", True), cases
+            )
+        )
     exercise = args.exercise.replace("-", "_")
     mod = importlib.import_module("exercises." + exercise)
     if hasattr(mod, "extra_cases"):
@@ -129,7 +149,7 @@ def main():
     with open(path, "w") as f:
         f.write(s)
     if args.format:
-        args = ['clang-format', '-i', path]
+        args = ["clang-format", "-i", path]
         subprocess.run(args, check=True)
 
 

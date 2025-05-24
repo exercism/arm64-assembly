@@ -6,10 +6,12 @@ extern int isosceles(int a, int b, int c);
 extern int scalene(int a, int b, int c);
 """
 
+
 def describe(case):
     description = case["description"]
     property = case["property"]
     return f"{property} {description}"
+
 
 def gen_func_body(prop, inp, expected):
     a = inp["sides"][0]

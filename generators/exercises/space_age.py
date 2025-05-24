@@ -15,6 +15,7 @@ typedef enum {
 extern double age(planet_t planet, int seconds);
 """
 
+
 def gen_func_body(prop, inp, expected):
     planet = inp["planet"].upper()
     seconds = inp["seconds"]

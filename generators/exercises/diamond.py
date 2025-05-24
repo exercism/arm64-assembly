@@ -6,10 +6,11 @@ FUNC_PROTO = """\
 extern void rows(char *buffer, char letter);
 """
 
+
 def gen_func_body(prop, inp, expected):
     letter = inp["letter"]
     str_list = []
-    str_list.append(f'const char expected[] =')
+    str_list.append("const char expected[] =")
     if len(expected) == 1:
         str_list[-1] += f' "{expected[0]}\\n";'
     else:
@@ -19,7 +20,7 @@ def gen_func_body(prop, inp, expected):
                 str_list.append(f'    "{line}\\n";')
             else:
                 str_list.append(f'    "{line}\\n"')
-    str_list.append(f'char buffer[BUFFER_SIZE];\n')
+    str_list.append("char buffer[BUFFER_SIZE];\n")
     str_list.append(f"{prop}(buffer, '{letter}');")
-    str_list.append(f'TEST_ASSERT_EQUAL_STRING(expected, buffer);\n')
+    str_list.append("TEST_ASSERT_EQUAL_STRING(expected, buffer);\n")
     return "\n".join(str_list)

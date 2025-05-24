@@ -21,13 +21,15 @@ typedef enum {
 extern int score(category_t category, const uint16_t *dice);
 """
 
+
 def array_literal(digits):
-    return '{' + ', '.join(str(d) for d in digits) + '}'
+    return "{" + ", ".join(str(d) for d in digits) + "}"
+
 
 def gen_func_body(prop, inp, expected):
-    category = inp["category"].upper().replace(' ', '_')
+    category = inp["category"].upper().replace(" ", "_")
     dice = array_literal(inp["dice"])
     str_list = []
-    str_list.append(f'const uint16_t dice[] = {dice};\n')
-    str_list.append(f'TEST_ASSERT_EQUAL_INT({expected}, {prop}({category}, dice));\n')
+    str_list.append(f"const uint16_t dice[] = {dice};\n")
+    str_list.append(f"TEST_ASSERT_EQUAL_INT({expected}, {prop}({category}, dice));\n")
     return "".join(str_list)

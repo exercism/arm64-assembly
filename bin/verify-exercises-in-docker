@@ -21,6 +21,7 @@ required_tool() {
 }
 
 required_tool docker
+required_tool jq
 
 copy_example_or_examplar_to_solution() {
     jq -c '[.files.solution, .files.exemplar // .files.example] | transpose | map({src: .[1], dst: .[0]}) | .[]' .meta/config.json \

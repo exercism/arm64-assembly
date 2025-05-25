@@ -526,6 +526,14 @@
         "difficulty": 6
       },
       {
+        "slug": "say",
+        "name": "Say",
+        "uuid": "d78a9ee8-d658-49a7-9848-5e55d98fc743",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 6
+      },
+      {
         "slug": "state-of-tic-tac-toe",
         "name": "State of Tic-Tac-Toe",
         "uuid": "857e4fb1-782d-4eed-bb4d-147c9c3f94df",

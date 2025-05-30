@@ -534,6 +534,14 @@
         "difficulty": 6
       },
       {
+        "slug": "spiral-matrix",
+        "name": "Spiral Matrix",
+        "uuid": "fc5766e2-b208-42b2-b309-4ef5b489725a",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 6
+      },
+      {
         "slug": "state-of-tic-tac-toe",
         "name": "State of Tic-Tac-Toe",
         "uuid": "857e4fb1-782d-4eed-bb4d-147c9c3f94df",

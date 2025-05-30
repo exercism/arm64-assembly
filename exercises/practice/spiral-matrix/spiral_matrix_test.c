@@ -22,7 +22,7 @@ void test_empty_spiral(void) {
 
 void test_trivial_spiral(void) {
     TEST_IGNORE();
-    uint32_t expected[] = {
+    const uint32_t expected[] = {
         // clang-format off
         1,
         // clang-format on
@@ -35,7 +35,7 @@ void test_trivial_spiral(void) {
 
 void test_spiral_of_size_2(void) {
     TEST_IGNORE();
-    uint32_t expected[] = {
+    const uint32_t expected[] = {
         // clang-format off
         1, 2,
         4, 3,
@@ -49,7 +49,7 @@ void test_spiral_of_size_2(void) {
 
 void test_spiral_of_size_3(void) {
     TEST_IGNORE();
-    uint32_t expected[] = {
+    const uint32_t expected[] = {
         // clang-format off
         1, 2, 3,
         8, 9, 4,
@@ -64,7 +64,7 @@ void test_spiral_of_size_3(void) {
 
 void test_spiral_of_size_4(void) {
     TEST_IGNORE();
-    uint32_t expected[] = {
+    const uint32_t expected[] = {
         // clang-format off
         1, 2, 3, 4,
         12, 13, 14, 5,
@@ -80,7 +80,7 @@ void test_spiral_of_size_4(void) {
 
 void test_spiral_of_size_5(void) {
     TEST_IGNORE();
-    uint32_t expected[] = {
+    const uint32_t expected[] = {
         // clang-format off
         1, 2, 3, 4, 5,
         16, 17, 18, 19, 6,

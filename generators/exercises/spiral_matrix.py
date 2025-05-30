@@ -15,7 +15,7 @@ def gen_func_body(prop, inp, expected):
     size = inp["size"]
     str_list = []
     if size > 0:
-        str_list.append("uint32_t expected[] = {")
+        str_list.append("const uint32_t expected[] = {")
         str_list.append("    // clang-format off")
         for row in expected:
             str_list.append("    " + ", ".join(map(str, row)) + ",")

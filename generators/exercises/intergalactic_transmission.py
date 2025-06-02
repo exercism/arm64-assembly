@@ -30,10 +30,8 @@ def gen_func_body(prop, inp, expected):
         message = "NULL"
         message_length = 0
     else:
-        str_list.append("uint8_t message[] = {\n")
-        str_list.append("    // clang-format off\n")
+        str_list.append("const uint8_t message[] = {\n")
         str_list.append(f"    {array_literal(message)}\n")
-        str_list.append("    // clang-format on\n")
         str_list.append("};\n")
 
         message = "message"
@@ -47,10 +45,8 @@ def gen_func_body(prop, inp, expected):
     elif expected == []:
         str_list.append(f"TEST_ASSERT_EQUAL_INT(0, {call});\n")
     else:
-        str_list.append("uint8_t expected[] = {\n")
-        str_list.append("    // clang-format off\n")
+        str_list.append("const uint8_t expected[] = {\n")
         str_list.append(f"    {array_literal(expected)}\n")
-        str_list.append("    // clang-format on\n")
         str_list.append("};\n")
 
         str_list.append(f"TEST_ASSERT_EQUAL_INT(ARRAY_SIZE(expected), {call});\n")

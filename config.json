@@ -622,6 +622,14 @@
         "difficulty": 8
       },
       {
+        "slug": "rail-fence-cipher",
+        "name": "Rail Fence Cipher",
+        "uuid": "995c7278-7c74-4cc6-bc21-01b1e33eac50",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 8
+      },
+      {
         "slug": "rectangles",
         "name": "Rectangles",
         "uuid": "d06c5066-917e-454c-8549-3af3e8f7bd9f",

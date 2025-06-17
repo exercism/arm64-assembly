@@ -18,12 +18,44 @@ void test_just_a_number(void) {
     TEST_ASSERT_EQUAL_INT(5, result);
 }
 
+void test_just_a_zero(void) {
+    TEST_IGNORE();
+    int64_t result;
+    const char *question = "What is 0?";
+    TEST_ASSERT_TRUE(answer(&result, question));
+    TEST_ASSERT_EQUAL_INT(0, result);
+}
+
+void test_just_a_negative_number(void) {
+    TEST_IGNORE();
+    int64_t result;
+    const char *question = "What is -123?";
+    TEST_ASSERT_TRUE(answer(&result, question));
+    TEST_ASSERT_EQUAL_INT(-123, result);
+}
+
 void test_addition(void) {
     TEST_IGNORE();
     int64_t result;
     const char *question = "What is 1 plus 1?";
     TEST_ASSERT_TRUE(answer(&result, question));
     TEST_ASSERT_EQUAL_INT(2, result);
+}
+
+void test_addition_with_a_left_hand_zero(void) {
+    TEST_IGNORE();
+    int64_t result;
+    const char *question = "What is 0 plus 2?";
+    TEST_ASSERT_TRUE(answer(&result, question));
+    TEST_ASSERT_EQUAL_INT(2, result);
+}
+
+void test_addition_with_a_right_hand_zero(void) {
+    TEST_IGNORE();
+    int64_t result;
+    const char *question = "What is 3 plus 0?";
+    TEST_ASSERT_TRUE(answer(&result, question));
+    TEST_ASSERT_EQUAL_INT(3, result);
 }
 
 void test_more_addition(void) {
@@ -189,7 +221,11 @@ void test_reject_prefix_notation(void) {
 int main(void) {
     UNITY_BEGIN();
     RUN_TEST(test_just_a_number);
+    RUN_TEST(test_just_a_zero);
+    RUN_TEST(test_just_a_negative_number);
     RUN_TEST(test_addition);
+    RUN_TEST(test_addition_with_a_left_hand_zero);
+    RUN_TEST(test_addition_with_a_right_hand_zero);
     RUN_TEST(test_more_addition);
     RUN_TEST(test_addition_with_negative_numbers);
     RUN_TEST(test_large_addition);

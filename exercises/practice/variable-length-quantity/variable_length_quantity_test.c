@@ -34,6 +34,16 @@ void test_arbitrary_single_byte(void) {
     TEST_ASSERT_EQUAL_UINT8_ARRAY(expected, actual, size);
 }
 
+void test_asymmetric_single_byte(void) {
+    TEST_IGNORE();
+    const uint32_t integers[] = {83};
+    const uint8_t expected[] = {83};
+    uint8_t actual[MAX_ARRAY_SIZE];
+    const size_t size = encode(actual, integers, ARRAY_SIZE(integers));
+    TEST_ASSERT_EQUAL_UINT(ARRAY_SIZE(expected), size);
+    TEST_ASSERT_EQUAL_UINT8_ARRAY(expected, actual, size);
+}
+
 void test_largest_single_byte(void) {
     TEST_IGNORE();
     const uint32_t integers[] = {127};
@@ -58,6 +68,16 @@ void test_arbitrary_double_byte(void) {
     TEST_IGNORE();
     const uint32_t integers[] = {8192};
     const uint8_t expected[] = {192, 0};
+    uint8_t actual[MAX_ARRAY_SIZE];
+    const size_t size = encode(actual, integers, ARRAY_SIZE(integers));
+    TEST_ASSERT_EQUAL_UINT(ARRAY_SIZE(expected), size);
+    TEST_ASSERT_EQUAL_UINT8_ARRAY(expected, actual, size);
+}
+
+void test_asymmetric_double_byte(void) {
+    TEST_IGNORE();
+    const uint32_t integers[] = {173};
+    const uint8_t expected[] = {129, 45};
     uint8_t actual[MAX_ARRAY_SIZE];
     const size_t size = encode(actual, integers, ARRAY_SIZE(integers));
     TEST_ASSERT_EQUAL_UINT(ARRAY_SIZE(expected), size);
@@ -94,6 +114,16 @@ void test_arbitrary_triple_byte(void) {
     TEST_ASSERT_EQUAL_UINT8_ARRAY(expected, actual, size);
 }
 
+void test_asymmetric_triple_byte(void) {
+    TEST_IGNORE();
+    const uint32_t integers[] = {120220};
+    const uint8_t expected[] = {135, 171, 28};
+    uint8_t actual[MAX_ARRAY_SIZE];
+    const size_t size = encode(actual, integers, ARRAY_SIZE(integers));
+    TEST_ASSERT_EQUAL_UINT(ARRAY_SIZE(expected), size);
+    TEST_ASSERT_EQUAL_UINT8_ARRAY(expected, actual, size);
+}
+
 void test_largest_triple_byte(void) {
     TEST_IGNORE();
     const uint32_t integers[] = {2097151};
@@ -124,6 +154,16 @@ void test_arbitrary_quadruple_byte(void) {
     TEST_ASSERT_EQUAL_UINT8_ARRAY(expected, actual, size);
 }
 
+void test_asymmetric_quadruple_byte(void) {
+    TEST_IGNORE();
+    const uint32_t integers[] = {3503876};
+    const uint8_t expected[] = {129, 213, 238, 4};
+    uint8_t actual[MAX_ARRAY_SIZE];
+    const size_t size = encode(actual, integers, ARRAY_SIZE(integers));
+    TEST_ASSERT_EQUAL_UINT(ARRAY_SIZE(expected), size);
+    TEST_ASSERT_EQUAL_UINT8_ARRAY(expected, actual, size);
+}
+
 void test_largest_quadruple_byte(void) {
     TEST_IGNORE();
     const uint32_t integers[] = {268435455};
@@ -148,6 +188,16 @@ void test_arbitrary_quintuple_byte(void) {
     TEST_IGNORE();
     const uint32_t integers[] = {4278190080};
     const uint8_t expected[] = {143, 248, 128, 128, 0};
+    uint8_t actual[MAX_ARRAY_SIZE];
+    const size_t size = encode(actual, integers, ARRAY_SIZE(integers));
+    TEST_ASSERT_EQUAL_UINT(ARRAY_SIZE(expected), size);
+    TEST_ASSERT_EQUAL_UINT8_ARRAY(expected, actual, size);
+}
+
+void test_asymmetric_quintuple_byte(void) {
+    TEST_IGNORE();
+    const uint32_t integers[] = {2254790917};
+    const uint8_t expected[] = {136, 179, 149, 194, 5};
     uint8_t actual[MAX_ARRAY_SIZE];
     const size_t size = encode(actual, integers, ARRAY_SIZE(integers));
     TEST_ASSERT_EQUAL_UINT(ARRAY_SIZE(expected), size);
@@ -258,18 +308,23 @@ int main(void) {
     UNITY_BEGIN();
     RUN_TEST(test_zero);
     RUN_TEST(test_arbitrary_single_byte);
+    RUN_TEST(test_asymmetric_single_byte);
     RUN_TEST(test_largest_single_byte);
     RUN_TEST(test_smallest_double_byte);
     RUN_TEST(test_arbitrary_double_byte);
+    RUN_TEST(test_asymmetric_double_byte);
     RUN_TEST(test_largest_double_byte);
     RUN_TEST(test_smallest_triple_byte);
     RUN_TEST(test_arbitrary_triple_byte);
+    RUN_TEST(test_asymmetric_triple_byte);
     RUN_TEST(test_largest_triple_byte);
     RUN_TEST(test_smallest_quadruple_byte);
     RUN_TEST(test_arbitrary_quadruple_byte);
+    RUN_TEST(test_asymmetric_quadruple_byte);
     RUN_TEST(test_largest_quadruple_byte);
     RUN_TEST(test_smallest_quintuple_byte);
     RUN_TEST(test_arbitrary_quintuple_byte);
+    RUN_TEST(test_asymmetric_quintuple_byte);
     RUN_TEST(test_maximum_32bit_integer_input);
     RUN_TEST(test_two_singlebyte_values);
     RUN_TEST(test_two_multibyte_values);

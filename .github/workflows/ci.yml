@@ -27,5 +27,5 @@ jobs:
           sudo apt-get update -q
           sudo apt-get install -y qemu-user gcc-aarch64-linux-gnu
 
-      - name: Run exercism/arm64-assembly ci (runs tests) for all exercises
-        run: bin/verify-exercises
+      - name: Run exercism/arm64-assembly CI (runs tests) for all exercises
+        run: make -j $(nproc)

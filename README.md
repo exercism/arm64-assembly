@@ -9,5 +9,6 @@ If you wish to work on this track, please post in the [Exercism Community Forum]
 
 ## Testing
 
-To test the exercises, run `./bin/verify-exercises`.
+To test the exercises, run `make` in the root directory.
 This command will iterate over all exercises and check to see if their exemplar/example implementation passes all the tests.
+You can also run a specific exercise by passing its slug, e.g., `make hello-world`

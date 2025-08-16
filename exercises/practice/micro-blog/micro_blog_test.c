@@ -105,6 +105,14 @@ void test_royal_flush(void) {
     TEST_ASSERT_EQUAL_STRING("🃎🂸🃅🃋🃍", buffer);
 }
 
+void test_ideograms(void) {
+    TEST_IGNORE();
+    char buffer[BUFFER_SIZE];
+
+    truncate(buffer, "二兎を追う者は一兎をも得ず");
+    TEST_ASSERT_EQUAL_STRING("二兎を追う", buffer);
+}
+
 int main(void) {
     UNITY_BEGIN();
     RUN_TEST(test_english_language_short);
@@ -119,5 +127,6 @@ int main(void) {
     RUN_TEST(test_emoji_short);
     RUN_TEST(test_emoji_long);
     RUN_TEST(test_royal_flush);
+    RUN_TEST(test_ideograms);
     return UNITY_END();
 }

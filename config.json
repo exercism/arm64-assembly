@@ -134,6 +134,14 @@
         "difficulty": 3
       },
       {
+        "slug": "line-up",
+        "name": "Line Up",
+        "uuid": "7a3a3a7a-23e6-47c5-ba7f-651c7f28d1f2",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 3
+      },
+      {
         "slug": "micro-blog",
         "name": "Micro Blog",
         "uuid": "3da09ee9-3f72-4c96-9b07-d1c82566cf65",

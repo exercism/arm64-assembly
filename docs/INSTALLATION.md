@@ -11,7 +11,7 @@ sudo apt install gcc make
 If you are not running on ARM64 hardware, install the [QEMU][] emulator and the GCC ARM64 cross-toolchain using
 
 ```shell
-sudo apt install qemu-user gcc-aarch64-linux-gnu
+sudo apt install qemu-user libc6-dev-arm64-cross gcc-aarch64-linux-gnu
 ```
 
 ## Windows

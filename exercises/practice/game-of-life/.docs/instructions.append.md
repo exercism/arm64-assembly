@@ -1,5 +1,7 @@
 # Instructions append
 
+## Implementation
+
 Each row of the grid is represented as a 64 bit integer.
 
 For example,

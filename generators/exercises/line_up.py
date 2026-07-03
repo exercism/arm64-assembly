@@ -13,7 +13,7 @@ def gen_func_body(prop, inp, expected):
     name = inp["name"]
     number = inp["number"]
     str_list = []
-    str_list.append("char buffer[BUFFER_SIZE];\n\n")
-    str_list.append(f'{prop}(buffer, "{name}", {number});\n')
-    str_list.append(f'TEST_ASSERT_EQUAL_STRING("{expected}", buffer);\n')
+    str_list.append("char buffer[BUFFER_SIZE];")
+    str_list.append(f'{prop}(buffer, "{name}", {number});')
+    str_list.append(f'TEST_ASSERT_EQUAL_STRING("{expected}", buffer);')
     return "\n".join(str_list)

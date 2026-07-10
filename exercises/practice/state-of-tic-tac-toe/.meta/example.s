@@ -19,10 +19,13 @@ gamestate:
         mov     w3, wzr                 /* bitset representing O marks on board */
         mov     w6, wzr                 /* number of X marks on board */
         mov     w7, wzr                 /* number of O marks on board */
+        mov     w8, wzr                 /* found win for X? */
+        mov     w9, wzr                 /* found win for O? */
+        mov     w10, #1
 
 .read_row:
         ldr     x4, [x0], #8            /* read address of next row */
-        cbz     x4, .count
+        cbz     x4, .read_line
 
         lsl     w2, w2, #1
         lsl     w3, w3, #1
@@ -41,31 +44,28 @@ gamestate:
         cinc    w7, w7, eq              /* update number of O marks on board */
         b       .read_mark
 
-.count:
-        cmp     w7, w6
-        bgt     .invalid                /* number of O marks > number of X marks */
-
-        add     w5, w7, #1
-        cmp     w6, w5
-        bgt     .invalid                /* number of X marks > 1 + number of O marks */
-
-        mov     w8, wzr                 /* found win for X? */
-        mov     w9, wzr                 /* found win for O? */
-        mov     w10, #1
-
 .read_line:
         ldrh    w4, [x1], #2            /* read from lines, post-increment */
         cbz     w4, .report
 
-        and     w5, w2, w4
-        cmp     w5, w4
+        and     w11, w2, w4
+        cmp     w11, w4
         csel    w8, w10, w8, eq         /* line formed by X marks */
-        and     w5, w3, w4
-        cmp     w5, w4
+        and     w11, w3, w4
+        cmp     w11, w4
         csel    w9, w10, w9, eq         /* line formed by O marks */
         b       .read_line
 
 .report:
+        add     w7, w7, w8
+        cmp     w7, w6
+        bgt     .invalid                /* number of O marks > number of X marks, or equal after X won */
+
+        add     w6, w6, w9
+        add     w5, w7, #1
+        cmp     w6, w5
+        bgt     .invalid                /* number of X marks > 1 + number of O marks, or equal after O won */
+
         orr     w4, w8, w9              /* has either player won? */
         cbnz    w4, .win
 

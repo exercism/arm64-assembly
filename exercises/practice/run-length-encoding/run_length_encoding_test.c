@@ -116,6 +116,16 @@ void test_consistency_encode_followed_by_decode_gives_original_string(void) {
     TEST_ASSERT_EQUAL_STRING("zzz ZZ  zZ", buffer2);
 }
 
+void test_consistency_consistency_with_punctuation(void) {
+    TEST_IGNORE();
+    char buffer1[BUFFER_SIZE];
+    char buffer2[BUFFER_SIZE];
+
+    encode(buffer1, "\t\t///::::\xB0@@@[[```{{{{");
+    decode(buffer2, buffer1);
+    TEST_ASSERT_EQUAL_STRING("\t\t///::::\xB0@@@[[```{{{{", buffer2);
+}
+
 void test_encode_long_run(void) {
     TEST_IGNORE();
     char buffer[BUFFER_SIZE];
@@ -150,6 +160,7 @@ int main(void) {
     RUN_TEST(test_decode_multiple_whitespace_mixed_in_string);
     RUN_TEST(test_decode_lowercase_string);
     RUN_TEST(test_consistency_encode_followed_by_decode_gives_original_string);
+    RUN_TEST(test_consistency_consistency_with_punctuation);
     RUN_TEST(test_encode_long_run);
     RUN_TEST(test_decode_long_run);
     return UNITY_END();

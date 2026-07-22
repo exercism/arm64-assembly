@@ -81,6 +81,14 @@ void test_underscore_emphasis(void) {
     TEST_ASSERT_EQUAL_STRING("TRNT", buffer);
 }
 
+void test_all_lowercase(void) {
+    TEST_IGNORE();
+    char buffer[BUFFER_SIZE];
+
+    abbreviate(buffer, "point of view");
+    TEST_ASSERT_EQUAL_STRING("POV", buffer);
+}
+
 int main(void) {
     UNITY_BEGIN();
     RUN_TEST(test_basic);
@@ -92,5 +100,6 @@ int main(void) {
     RUN_TEST(test_consecutive_delimiters);
     RUN_TEST(test_apostrophes);
     RUN_TEST(test_underscore_emphasis);
+    RUN_TEST(test_all_lowercase);
     return UNITY_END();
 }

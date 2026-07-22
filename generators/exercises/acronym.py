@@ -7,6 +7,17 @@ extern void abbreviate(char *buffer, const char *phrase);
 """
 
 
+def extra_cases():
+    return [
+        {
+            "description": "all lowercase",
+            "property": "abbreviate",
+            "input": {"phrase": "point of view"},
+            "expected": "POV",
+        }
+    ]
+
+
 def gen_func_body(prop, inp, expected):
     phrase = inp["phrase"]
     str_list = []

@@ -144,11 +144,20 @@ void test_reverse_empty_list(void) {
     TEST_ASSERT_EQUAL_UINT(0U, reverse(buffer, NULL, 0));
 }
 
-void test_reverse_nonempty_list(void) {
+void test_reverse_nonempty_evenlength_list(void) {
     TEST_IGNORE();
     const int64_t list[] = {1, 3, 5, 7};
     int64_t buffer[BUFFER_SIZE];
     const int64_t expected[] = {7, 5, 3, 1};
+    TEST_ASSERT_EQUAL_UINT(ARRAY_SIZE(expected), reverse(buffer, list, ARRAY_SIZE(list)));
+    TEST_ASSERT_EQUAL_INT64_ARRAY(expected, buffer, ARRAY_SIZE(expected));
+}
+
+void test_reverse_nonempty_oddlength_list(void) {
+    TEST_IGNORE();
+    const int64_t list[] = {1, 3, 5, 7, 9, 11, 13};
+    int64_t buffer[BUFFER_SIZE];
+    const int64_t expected[] = {13, 11, 9, 7, 5, 3, 1};
     TEST_ASSERT_EQUAL_UINT(ARRAY_SIZE(expected), reverse(buffer, list, ARRAY_SIZE(list)));
     TEST_ASSERT_EQUAL_INT64_ARRAY(expected, buffer, ARRAY_SIZE(expected));
 }
@@ -170,6 +179,7 @@ int main(void) {
     RUN_TEST(test_foldr_direction_independent_function_applied_to_nonempty_list);
     RUN_TEST(test_foldr_direction_dependent_function_applied_to_nonempty_list);
     RUN_TEST(test_reverse_empty_list);
-    RUN_TEST(test_reverse_nonempty_list);
+    RUN_TEST(test_reverse_nonempty_evenlength_list);
+    RUN_TEST(test_reverse_nonempty_oddlength_list);
     return UNITY_END();
 }

@@ -1,0 +1,12 @@
+count_char:
+    mov     x2, #0
+loop:
+    ldrb    w3, [x0], #1
+    cbz     w3, done
+    cmp     w3, w1
+    b.ne    loop
+    add     x2, x2, #1
+    b       loop
+done:
+    mov     x0, x2
+    ret
